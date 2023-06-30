@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+
+import CategoryItem from "./components/category-item/category-item.component";
 
 function App() {
+
+  const categories = [
+    {
+      "id": 1,
+      "title": "Habit Tracker",
+    },
+    {
+      "id": 2,
+      "title": "Reading Journal",
+    },
+    {
+      "id": 3,
+      "title": "Budget Planner",
+    },
+    {
+      "id": 4,
+      "title": "3-month and 5-year Goals",
+    },
+    {
+      "id": 5,
+      "title": "daily affirmations and gratitude ",
+    }
+  ]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>hello</h1>
+      {categories.map((category) => <CategoryItem key={category.id} category={category}/>)}
     </div>
+
   );
 }
 

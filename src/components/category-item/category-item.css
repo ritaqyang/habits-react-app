@@ -1,0 +1,15 @@
+.category-container{
+    height: 240px; 
+    display: flex;
+    justify-content: center;
+    background-color: blueviolet;
+    border: 1px solid black; 
+}
+
+
+
+.category-body-container{
+    height: 90px; 
+    display: flex; 
+    flex-direction: column;
+}
