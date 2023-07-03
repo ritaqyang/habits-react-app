@@ -1,7 +1,7 @@
 import { useEffect } from 'react'; 
 import { getRedirectResult } from 'firebase/auth'; //yarn add firebase
 import SignUpForm from '../../components/sign-up-form/sign-up-form.component';
-
+import Button from '../../components/button/button.component';
 import {
     auth,
     signInWithGooglePopup,
@@ -31,7 +31,7 @@ import {
     return (
       <div>
         <h1>Sign In Page</h1>
-        <button onClick={logGoogleUser}>Sign in with Google Popup</button>
+        <Button onClick={logGoogleUser}>Sign in with Google Popup</Button>
         <SignUpForm />
       </div>
     );
