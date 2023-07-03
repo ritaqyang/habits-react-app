@@ -2,12 +2,13 @@ import Home from "./routes/home/home.component";
 import Dashboard from "./routes/dashboard/dashboard.component";
 import SignIn from "./routes/sign-in/sign-in.component";
 import Navigation from "./routes/navigation/navigation.component";
-
-import { Routes, Route, Outlet, Link } from 'react-router-dom';
+import { UserContext } from "./context/user.context";
+import { useContext } from "react";
+import { Routes, Route } from 'react-router-dom';
 
 
 function App() {
-
+  const { currentUser } = useContext(UserContext);
   
   return (
     <Routes>
