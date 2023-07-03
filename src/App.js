@@ -1,35 +1,23 @@
-import HomeDirectory from "./components/home-directory/home-directory.component";
+import Home from "./routes/home/home.component";
+import Dashboard from "./routes/dashboard/dashboard.component";
+import SignIn from "./routes/sign-in/sign-in.component";
+import Navigation from "./routes/navigation/navigation.component";
 
+import { Routes, Route, Outlet, Link} from 'react-router-dom';
+import { Fragment } from "react";
 
 function App() {
 
-  const categories = [
-    {
-      "id": 1,
-      "title": "Habit Tracker",
-    },
-    {
-      "id": 2,
-      "title": "Reading Journal",
-    },
-    {
-      "id": 3,
-      "title": "Budget Planner",
-    },
-    {
-      "id": 4,
-      "title": "5-year Goals",
-    },
-    {
-      "id": 5,
-      "title": "Daily affirmations and gratitude ",
-    }
-  ]
+  
   return (
-    <div>
-      <HomeDirectory categories={categories} />
-    </div>
+    <Routes>
+      <Route path='/' element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path='dashboard' element={<Dashboard />} />
+        <Route path='sign-in' element={<SignIn />} />
 
+      </Route>
+  </Routes>
   );
 }
 
