@@ -1,9 +1,10 @@
 .category-container{
-    height: 240px; 
+    height: 240px;
+    width: 360px;  
     display: flex;
     justify-content: center;
-    background-color: blueviolet;
-    border: 1px solid black; 
+    background-color: lightpink;
+    border: 3px solid black; 
 }
 
 
