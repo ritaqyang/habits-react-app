@@ -55,8 +55,8 @@ const SignUpForm = () => {
                 sign up with ur email and password 
             </h1>
             <form onSubmit={handleSubmit}>
-                <label>Display Name </label>
                 <FormInput 
+                    label='Display Name'
                     type='text' 
                     required 
                     onChange={handleChange} 
@@ -64,8 +64,8 @@ const SignUpForm = () => {
                     value={displayName}
                 />
 
-                <label>Email  </label>
                 <FormInput 
+                    label='email'
                     type='email' 
                     required
                     onChange={handleChange} 
@@ -73,8 +73,8 @@ const SignUpForm = () => {
                     value={email}
                 />
                 
-                <label>Password </label>
                 <FormInput 
+                    label='Password'
                     type='password' 
                     required 
                     onChange={handleChange}
@@ -82,8 +82,9 @@ const SignUpForm = () => {
                     value={password}
                 />
                 
-                <label>Confirm Password</label>
+               
                 <FormInput
+                    label='Confirm Password'
                     type='password' 
                     required
                     onChange={handleChange} 
