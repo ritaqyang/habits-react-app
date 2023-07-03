@@ -27,7 +27,7 @@ const Navigation = () => {
               My Dashboard
             </Link>
             {currentUser ? (
-              <span className='nav-link'>
+              <span className='nav-link'onClick={signOutHandler}>
                 {' '}
                 SIGN OUT{' '}
               </span>
