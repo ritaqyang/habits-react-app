@@ -1,5 +1,5 @@
+import HomeDirectory from "./components/home-directory/home-directory.component";
 
-import CategoryItem from "./components/category-item/category-item.component";
 
 function App() {
 
@@ -18,17 +18,16 @@ function App() {
     },
     {
       "id": 4,
-      "title": "3-month and 5-year Goals",
+      "title": "5-year Goals",
     },
     {
       "id": 5,
-      "title": "daily affirmations and gratitude ",
+      "title": "Daily affirmations and gratitude ",
     }
   ]
   return (
     <div>
-      <h1>hello</h1>
-      {categories.map((category) => <CategoryItem key={category.id} category={category}/>)}
+      <HomeDirectory categories={categories} />
     </div>
 
   );

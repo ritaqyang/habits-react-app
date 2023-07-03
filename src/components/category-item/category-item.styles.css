@@ -3,14 +3,17 @@
     width: 360px;  
     display: flex;
     justify-content: center;
+    flex-direction: row;
     background-color: lightpink;
     border: 3px solid black; 
+
 }
 
 
 
 .category-body-container{
-    height: 90px; 
+    height: 150px; 
+    width:200px;
     display: flex; 
     flex-direction: column;
 }
