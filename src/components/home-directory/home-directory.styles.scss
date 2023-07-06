@@ -1,0 +1,50 @@
+@import "../../sass/abstracts/variables";
+
+
+.header {
+    height: 95vh; 
+    background-image:linear-gradient(
+        to right,
+        rgba(white,0.45),
+        rgba(chocolate,0.2)),
+    url(../../img/vecteezy_blank-white-throw-pillow-cushion-product-mockup-ai-generative_23809725_304.jpg) ;
+    
+    
+    background-size: cover;
+    background-position: top;
+    position: relative; 
+
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100% );
+
+    &__logo-box {
+        position: absolute; 
+        top: 4rem; 
+        left: 4rem; 
+    }
+    &__logo {
+        height: 35px; 
+    }
+    &__logo:hover{
+        animation: moveInRignt 1s ease-out;
+    }
+
+    &__text-box {
+        position: absolute; 
+        top: 50%; 
+        left: 50%; 
+        transform: translate(-50%, -50%); 
+        text-align: center;
+    }
+}
+
+.categories-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: space-between; 
+    flex-direction: row;
+    column-gap: 20px;
+    padding: 100px;
+
+    
+}

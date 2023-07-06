@@ -1,6 +1,8 @@
 import HomeDirectory from "../../components/home-directory/home-directory.component";
 
 
+
+
 function Home() {
 
   const categories = [
@@ -27,7 +29,9 @@ function Home() {
   ]
   return (
     <div>
+      
       <HomeDirectory categories={categories} />
+     
     </div>
 
   );

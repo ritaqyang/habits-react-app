@@ -1,3 +1,6 @@
+@import "../../sass/abstracts/variables"; 
+
+
 .button-container {
     min-width: 165px;
     width: auto;
@@ -6,7 +9,7 @@
     line-height: 50px;
     padding: 0 35px 0 35px;
     font-size: 15px;
-    background-color: black;
+    background-color: $chocolate;
     color: white;
     text-transform: uppercase;
     font-family: 'Open Sans Condensed';
@@ -20,15 +23,18 @@
       background-color: white;
       color: black;
       border: 1px solid black;
+
     }
   
     &.google-sign-in {
-      background-color: #4285f4;
+      background-color: rgba(29, 77, 220, 0.7);
       color: white;
   
       &:hover {
-        background-color: #357ae8;
+        background-color:rgba(29, 77, 220, 0.85);
+        
         border: none;
+        box-shadow: 0 20px 20px rgba(0, 0, 0, .2);
       }
     }
   
