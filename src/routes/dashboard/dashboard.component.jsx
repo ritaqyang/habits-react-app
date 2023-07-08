@@ -1,6 +1,16 @@
+import './dashboard.styles.scss'; 
+import img from "../../img/daenerys.jpeg" ;
+
 const Dashboard = () => {
     return (
-        <h1> this is the Dashboard</h1>
+        <div>
+            <div className="poster">
+                <img className="motivation-img" src={img}  />
+                <h1>That Special Moment</h1>
+                <p>When you find the perfect avocado at the supermarket</p>
+        </div>
+        </div>
+       
     )
 }
 

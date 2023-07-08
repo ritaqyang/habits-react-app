@@ -5,6 +5,7 @@ import Navigation from "./routes/navigation/navigation.component";
 import { UserContext } from "./context/user.context";
 import { useContext } from "react";
 import { Routes, Route } from 'react-router-dom';
+import './sass/main.scss'; 
 
 
 function App() {
