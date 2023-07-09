@@ -1,6 +1,16 @@
 .authentication-container {
     display: flex;
-    width: 900px;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin: 30px auto;
+    // background-color: pink;
+    padding: 20px; 
+
+    &__item{
+      padding:40px;
+      background-color: rgba(244, 239, 239,0.7);
+      border: 1px solid black;
+      border-radius: 4deg;
+
+    }
   }
+

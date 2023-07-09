@@ -39,14 +39,13 @@
 
 .categories-container{
     
-    top: -20%;
+    
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    align-content: space-between; 
-    flex-direction: row;
-    column-gap: 20px;
-    padding: 100px;
+    column-gap: 5rem;
+    row-gap:5rem;
+    padding: 5rem;
+    flex-wrap: wrap;
 
     
 }
