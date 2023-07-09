@@ -7,7 +7,7 @@ import {
     auth,
     signInWithGooglePopup,
     createUserDocumentFromAuth,
-  } from '../../utils/firebase.utils';
+  } from '../../utils/firebase/firebase.utils';
 
   
   const SignIn = () => {
