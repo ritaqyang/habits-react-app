@@ -6,6 +6,8 @@ import './navigation.styles.scss';
 import { UserContext } from '../../context/user.context';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 
+import SmileyIcon from '../../components/smiley-face-icon/smiley-face-icon.component';
+
 
 const Navigation = () => {
 
@@ -36,6 +38,7 @@ const Navigation = () => {
                 SIGN IN
               </Link>
             )}
+            <SmileyIcon /> 
           </div>  
         </div>
         <Outlet />

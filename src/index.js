@@ -6,6 +6,7 @@ import App from "./App";
 import { UserProvider } from "./context/user.context";
 
 import "./index.css";
+import { SmileyProvider } from "./context/smiley.context";
 
 const rootElement = document.getElementById("root");
 
@@ -13,7 +14,9 @@ render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
-        <App />
+        <SmileyProvider>
+            <App />
+        </SmileyProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>,
