@@ -38,8 +38,9 @@ const Navigation = () => {
                 SIGN IN
               </Link>
             )}
-            <SmileyIcon /> 
           </div>  
+          <SmileyIcon /> 
+
         </div>
         <Outlet />
       </Fragment>
