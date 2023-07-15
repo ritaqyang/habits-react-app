@@ -1,16 +1,16 @@
 import { useContext } from 'react';
 import { SmileyContext } from '../../context/smiley.context';
-import {ReactComponent as SmileIcon} from '../../img//1432299223.svg';
-import './smiley-face-icon.styles.scss'; 
+import { ReactComponent as SmileIcon} from '../../img//1432299223.svg';
+import { IconContainer } from './smiley-face-icon.styles'; 
 const SmileyIcon = () => {
   const { isSmileyOpen, setIsSmileyOpen } = useContext(SmileyContext);
 
   const toggleIsSmileyOpen = () => setIsSmileyOpen(!isSmileyOpen);
 
   return (
-    <div className='smiley-icon-container' >
+    <IconContainer >
       <SmileIcon className='smiley-icon' />
-    </div>
+    </IconContainer>
   );
 };
 
