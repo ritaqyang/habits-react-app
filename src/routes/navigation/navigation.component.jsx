@@ -33,7 +33,7 @@ const Navigation = () => {
               Home
             </NavLink>
             <NavLink className='nav-link' to='/dashboard'>
-              My Dashboard
+              Vision Board
             </NavLink>
             {currentUser ? (
               <span className='nav-link'onClick={signOutHandler}>
