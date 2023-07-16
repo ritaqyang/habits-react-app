@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 
 import {
-  ProductCartContainer,
+  ProductCardContainer,
   Footer,
   Name,
   Price,
@@ -15,7 +15,7 @@ const ProductCard = ({ product }) => {
 
 
   return (
-    <ProductCartContainer>
+    <ProductCardContainer>
       <img src={imageUrl} alt={`${name}`} />
       <Footer>
         <Name>{name}</Name>
@@ -25,9 +25,9 @@ const ProductCard = ({ product }) => {
         buttonType={BUTTON_TYPE_CLASSES.inverted}
 
       >
-        Add to card
+        Check Progress
       </Button>
-    </ProductCartContainer>
+    </ProductCardContainer>
   );
 };
 
