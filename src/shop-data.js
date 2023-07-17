@@ -22,7 +22,7 @@ const SHOP_DATA = [
     items: [
       {
         id:10,
-        imageUrl: "https://i.ibb.co/0VLRmKJ/Mediamodifier-Design-Template-10.png" ,
+        imageUrl: "https://i.ibb.co/J2Hg1qQ/Mediamodifier-Design-Template-3.png" ,
       },
       {
         id:11, 
