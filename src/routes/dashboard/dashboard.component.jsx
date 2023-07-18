@@ -12,9 +12,9 @@ import { setCategories } from '../../store/categories/category.reducer';
 
 const Dashboard = () => {
 
-    useEffect(() => {
-        addCollectionAndDocuments('categories', DATA)
-    }, [])
+    // useEffect(() => {
+    //     addCollectionAndDocuments('categories', DATA)
+    // }, []); 
 
     const dispatch = useDispatch();
 

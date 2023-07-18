@@ -24,6 +24,7 @@ import {
   query,
   getDocs,
 } from 'firebase/firestore';
+import { getDatabase, ref, orderByChild } from "firebase/database";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -66,6 +67,7 @@ export const addCollectionAndDocuments = async (
   console.log('done');
 };
 
+
 export const getCategoriesAndDocuments = async () => {
   const collectionRef = collection(db, 'categories');
   const q = query(collectionRef);
@@ -76,9 +78,9 @@ export const getCategoriesAndDocuments = async () => {
 
 
 export const getUserDocuments = async() => {
-  const collectionRef = collection(db, 'users'); 
-  const q = query(collectionRef); 
-
+  const collectionRef = collection(db, 'habits'); 
+ const q = query(collectionRef); 
+  
   const querySnapshot = await getDocs(q); 
   return querySnapshot.docs.map((docSnapshot) => docSnapshot.data()); 
 }

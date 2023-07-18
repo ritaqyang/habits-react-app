@@ -1,4 +1,6 @@
+import { useSelector } from "react-redux";
 import HomeDirectory from "../../components/home-directory/home-directory.component";
+import { selectHabitsMap } from "../../store/habit/habit.selector";
 
 
 
@@ -27,10 +29,15 @@ function Home() {
       "title": "Daily affirmations and gratitude ",
     }
   ]
+
+  const habitsArray = useSelector(selectHabitsMap); 
+  
+  
   return (
     <div>
       
       <HomeDirectory categories={categories} />
+      {Object.keys(habitsArray).map((title) => {return <div>{title}</div>})}; 
       
      
     </div>
