@@ -2,10 +2,11 @@
 import { Outlet, Link } from 'react-router-dom';
 //yarn add react-router-dom@6
 import { Fragment, useContext } from 'react';
-import './navigation.styles.jsx'; 
-import { UserContext } from '../../context/user.context';
-import { signOutUser } from '../../utils/firebase/firebase.utils';
+import { useSelector } from 'react-redux';
 
+import './navigation.styles.jsx'; 
+import { signOutUser } from '../../utils/firebase/firebase.utils';
+import { selectCurrentUser } from '../../store/user/user.selector';
 import SmileyIcon from '../../components/smiley-face-icon/smiley-face-icon.component';
 
 import {
@@ -17,11 +18,7 @@ import {
 
 const Navigation = () => {
 
-    const { currentUser, setCurrentUser} = useContext(UserContext); 
-    const signOutHandler = async () => {
-      await signOutUser();
-      setCurrentUser(null);
-    };
+    const currentUser = useSelector(selectCurrentUser);
 
     return (
       <Fragment>
@@ -35,8 +32,11 @@ const Navigation = () => {
             <NavLink className='nav-link' to='/dashboard'>
               Vision Board
             </NavLink>
+            <NavLink className='nav-link' to="/user-page">
+              My Page
+            </NavLink>
             {currentUser ? (
-              <span className='nav-link'onClick={signOutHandler}>
+              <span className='nav-link'onClick={signOutUser}>
                 {' '}
                 SIGN OUT{' '}
               </span>

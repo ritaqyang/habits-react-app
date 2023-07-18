@@ -31,6 +31,7 @@ function Home() {
     <div>
       
       <HomeDirectory categories={categories} />
+      
      
     </div>
 
