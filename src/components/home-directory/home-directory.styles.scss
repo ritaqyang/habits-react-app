@@ -3,16 +3,17 @@
 
 .header {
     height: 40vh; 
-    background-image:linear-gradient(
-        to right,
-        rgba(white,0.45),
-        rgba(chocolate,0.2)),
-    url(../../img/vecteezy_blank-white-throw-pillow-cushion-product-mockup-ai-generative_23809725_304.jpg) ;
+    // background-image:linear-gradient(
+    //     to right,
+    //     rgba(white,0.45),
+    //     rgba(chocolate,0.2)),
+    // url(../../img/vecteezy_blank-white-throw-pillow-cushion-product-mockup-ai-generative_23809725_304.jpg) ;
     
     
     background-size: cover;
     background-position: top;
     position: relative; 
+    
 
     clip-path: polygon(0 0, 100% 0, 100% 70%, 80% 100%, 0 100%);
 
