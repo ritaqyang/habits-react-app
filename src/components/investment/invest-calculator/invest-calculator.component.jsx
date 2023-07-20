@@ -1,13 +1,21 @@
 import InvestChart from "../../charts/investment-chart/investment-chart.component";
-import InvestCalcForm from "../../forms/investment-page-forms/invest-calculator-form/invest-calc-form.component";
-
-const InvestCalculator = () => {
+import InvestCalcForm from "../../forms/invest-forms/invest-calculator-form/invest-calc-form.component";
+import { CalcContainer, CalcBodyContainer } from "./invest-calculator.styles";
+const InvestCalculator = ({title}) => {
     return (
-        <div>
-            <h2>this is a investment calculator! </h2>
+        <CalcContainer>
+        
+            <h2> {title}</h2>
+            <span>write down what you can invest monthly </span>
+
+            <CalcBodyContainer>
+            <InvestChart />
             <InvestCalcForm />
-            <InvestChart /> 
-        </div>
+
+            </CalcBodyContainer>
+            
+            
+        </CalcContainer>
     )
 }; 
 

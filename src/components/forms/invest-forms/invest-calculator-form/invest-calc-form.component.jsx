@@ -12,13 +12,13 @@ import {
 
 
 const defaultFormFields = {
-  amount: 0,
-  
+  monthlyAmount: 0,
+  savingsAmount: 0,
 };
 
 const InvestCalcForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
-  const { amount } = formFields;
+  const { monthlyAmount, savingsAmount } = formFields;
   
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -46,20 +46,28 @@ const InvestCalcForm = () => {
   return (
     <InvestFormContainer>
 
-        <h2> What would your investment look like if you start today? </h2>
-        <span>write down what you can invest monthly </span>
+        
         <form onSubmit={handleSubmit}>
         <FormInput
           label='Monthly Contribution'
           type='text'
           required
           onChange={handleChange}
-          name='amount'
-          value={amount}
+          name='monthlyAmount'
+          value={monthlyAmount}
+        />
+
+        <FormInput
+          label='Savings'
+          type='text'
+          required
+          onChange={handleChange}
+          name='savingsAmount'
+          value={savingsAmount}
         />
 
         
-        <Button type='submit'>Get Estimate</Button>
+        <Button type='submit'>Estimate</Button>
       </form>
 
     </InvestFormContainer>
