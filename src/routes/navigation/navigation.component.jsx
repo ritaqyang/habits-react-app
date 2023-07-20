@@ -38,6 +38,9 @@ const Navigation = () => {
             <NavLink className='nav-link' to="/user-page">
               My Page
             </NavLink>
+            <NavLink className='nav-link' to="/social-page">
+              Social
+            </NavLink>
             {currentUser ? (
               <span className='nav-link'onClick={signOutUser}>
                 {' '}

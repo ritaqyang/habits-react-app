@@ -12,6 +12,7 @@ import Navigation from './routes/navigation/navigation.component';
 import SignIn from './routes/sign-in/sign-in.component';
 import Dashboard from './routes/dashboard/dashboard.component';
 import UserPage from './routes/userpage/user-page.component';
+import SocialPage from './routes/social-page/social-page.component';
 import { setCurrentUser } from './store/user/user.reducer';
 
 const App = () => {
@@ -39,6 +40,7 @@ const App = () => {
         <Route path='sign-in' element={<SignIn />} />
         <Route path='dashboard' element={<Dashboard />} />
         <Route path="user-page" element={<UserPage />} />
+        <Route path="social-page" element={<SocialPage />} />
       </Route>
     </Routes>
   );
