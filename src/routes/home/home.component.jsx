@@ -36,7 +36,7 @@ function Home() {
   return (
     <div>
       
-      <HomeDirectory categories={categories} />
+     
       {Object.keys(habitsArray).map((title) => {return <div>{title}</div>})}; 
       
      
