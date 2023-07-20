@@ -10,7 +10,7 @@ import { selectIsCartOpen } from '../../store/cart/cart.selector';
 
 import './navigation.styles.jsx'; 
 import { signOutUser } from '../../utils/firebase/firebase.utils';
-
+import InvestIcon from '../../components/investment/invest-icon/invest-icon.component';
 import {
   NavigationContainer,
   NavLinks,
@@ -27,6 +27,8 @@ const Navigation = () => {
       <Fragment>
         <NavigationContainer>
 
+        <InvestIcon />
+
 
           <NavLinks>
             <NavLink className='nav-link' to='/'>
@@ -41,6 +43,8 @@ const Navigation = () => {
             <NavLink className='nav-link' to="/social-page">
               Social
             </NavLink>
+
+            
             {currentUser ? (
               <span className='nav-link'onClick={signOutUser}>
                 {' '}
@@ -51,13 +55,19 @@ const Navigation = () => {
                 SIGN IN
               </NavLink>
             )}
-            <CartIcon /> 
+
+             
+           
+            
           </NavLinks>  
-          {isCartOpen && <CartDropdown />}
-          
+          <CartIcon /> 
+        {isCartOpen && <CartDropdown />}
+
 
         </NavigationContainer>
         <Outlet />
+
+
       </Fragment>
   
     )

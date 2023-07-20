@@ -5,7 +5,7 @@ import {
   selectIsCartOpen,
 } from '../../../store/cart/cart.selector';
 import { setIsCartOpen } from '../../../store/cart/cart.reducer';
-import { ReactComponent as ShoppingIcon } from '../../../assets/shopping-bag.svg';
+import { ReactComponent as ShoppingIcon } from '../../../assets/schedule-svgrepo-com.svg';
 
 import { CartIconContainer, ItemCount } from './cart-icon.styles';
 
