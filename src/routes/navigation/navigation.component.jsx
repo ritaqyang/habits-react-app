@@ -1,18 +1,15 @@
 
 import { Outlet, Link } from 'react-router-dom';
 //yarn add react-router-dom@6
-import { Fragment, useContext } from 'react';
+import { Fragment } from 'react';
 import { useSelector } from 'react-redux';
-
-import CartIcon from '../../components/cart-icon/cart-icon.component';
-import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component';
-
+import CartDropdown from '../../components/cart/cart-dropdown/cart-dropdown.component';
+import CartIcon from '../../components/cart/cart-icon/cart-icon.component';
 import { selectCurrentUser } from '../../store/user/user.selector';
 import { selectIsCartOpen } from '../../store/cart/cart.selector';
 
 import './navigation.styles.jsx'; 
 import { signOutUser } from '../../utils/firebase/firebase.utils';
-import SmileyIcon from '../../components/smiley-face-icon/smiley-face-icon.component';
 
 import {
   NavigationContainer,
