@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
 import FormInput from '../form-input/form-input.component';
-import Button from '../button/button.component';
-import { selectCurrentUser } from '../../store/user/user.selector';
+import Button from '../../button/button.component';
+import { selectCurrentUser } from '../../../store/user/user.selector';
 import {  useSelector } from 'react-redux/es/hooks/useSelector';
 import { 
   HabitContainer,
 } from './habit-form.styles'
-import { addHabit } from '../../utils/firebase/firebase.utils';
+import { addHabit } from '../../../utils/firebase/firebase.utils';
 
 
 const defaultFormFields = {

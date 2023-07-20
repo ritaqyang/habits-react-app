@@ -12,7 +12,7 @@ import { getCategoriesAndDocuments } from '../../utils/firebase/firebase.utils';
 import HABIT_DATA from '../../habit-data';
 import { setHabits } from '../../store/habit/habit.reducer';
 import CategoriesPreview from '../categories-preview/categories-preview.component';
-import HabitForm from '../../components/habits-form/habit-form.component';
+import HabitForm from '../../components/forms/habits-form/habit-form.component';
 
 
 const UserPage = () => {
