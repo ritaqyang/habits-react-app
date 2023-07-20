@@ -11,7 +11,7 @@ class InvestChart extends Component {
           id: "basic-bar"
         },
         xaxis: {
-          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
+          categories: [2023,2028,2033,2038,2043,2048,2053,2058,2063,2068]
         }
       },
       series: [

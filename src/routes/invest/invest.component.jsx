@@ -1,10 +1,9 @@
-import InvestChart from "../../components/charts/investment-chart/investment-chart.component";
-
+import InvestCalculator from "../../components/investment/invest-calculator/invest-calculator.component";
 
 const Invest = () => {
     return (
         <div>
-            <InvestChart />
+            <InvestCalculator />
             this is investment page 
         </div>
     )
