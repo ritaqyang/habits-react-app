@@ -5,13 +5,14 @@ import { useSelector } from 'react-redux';
 import { selectHabitsMap } from '../../store/habit/habit.selector';
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import {  useDispatch } from 'react-redux';
 import { addCollectionAndDocuments, getUserDocuments } from '../../utils/firebase/firebase.utils';
-
+import { getCategoriesAndDocuments } from '../../utils/firebase/firebase.utils';
 
 import HABIT_DATA from '../../habit-data';
 import { setHabits } from '../../store/habit/habit.reducer';
 import CategoriesPreview from '../categories-preview/categories-preview.component';
+import HabitForm from '../../components/habits-form/habit-form.component';
 
 
 const UserPage = () => {
@@ -24,24 +25,15 @@ const UserPage = () => {
     }, []); 
 
 
-    const dispatch = useDispatch(); 
-    
-    useEffect(() => {
-        
-        const getHabitsArray = async () => {
-            const habitsArray = await getUserDocuments(); 
-        dispatch(setHabits(habitsArray)); 
-        
+//     const dispatch = useDispatch(); 
+//     useEffect(() => {
+//     const getHabitsMap = async () => {
+//       const habitsArray = await getCategoriesAndDocuments('habits');
+//       dispatch(setHabits(habitsArray));
+//     };
 
-    }; 
-    getHabitsArray(); 
-
-        },[]); 
-
-    // const habitsArray = useSelector(selectHabitsMap); 
-
-
-
+//     getHabitsMap();
+//   }, []);
 
 
    
@@ -54,6 +46,8 @@ const UserPage = () => {
                 const userDoc= habitsArray[title]; 
                 return <div>title </div>; 
             })} */}
+
+            <HabitForm /> 
             
             <h1 className="header">React Calendar</h1>
             <div className="calendar-container">

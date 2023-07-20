@@ -30,14 +30,15 @@ function Home() {
     }
   ]
 
-  const habitsArray = useSelector(selectHabitsMap); 
+  // const habitsArray = useSelector(selectHabitsMap); 
   
   
   return (
     <div>
       
+      this is the home page 
      
-      {Object.keys(habitsArray).map((title) => {return <div>{title}</div>})}; 
+      {/* {Object.keys(habitsArray).map((title) => {return <div>{title}</div>})};  */}
       
      
     </div>

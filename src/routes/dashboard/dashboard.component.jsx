@@ -20,7 +20,7 @@ const Dashboard = () => {
 
     useEffect(() => {
     const getCategoriesMap = async () => {
-      const categoriesArray = await getCategoriesAndDocuments();
+      const categoriesArray = await getCategoriesAndDocuments('categories');
       dispatch(setCategories(categoriesArray));
     };
 

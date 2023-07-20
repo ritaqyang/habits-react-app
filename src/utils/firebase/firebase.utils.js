@@ -68,8 +68,8 @@ export const addCollectionAndDocuments = async (
 };
 
 
-export const getCategoriesAndDocuments = async () => {
-  const collectionRef = collection(db, 'categories');
+export const getCategoriesAndDocuments = async (categories) => {
+  const collectionRef = collection(db, categories);
   const q = query(collectionRef);
 
   const querySnapshot = await getDocs(q);
@@ -77,13 +77,6 @@ export const getCategoriesAndDocuments = async () => {
 };
 
 
-export const getUserDocuments = async() => {
-  const collectionRef = collection(db, 'habits'); 
- const q = query(collectionRef); 
-  
-  const querySnapshot = await getDocs(q); 
-  return querySnapshot.docs.map((docSnapshot) => docSnapshot.data()); 
-}
 
 export const createUserDocumentFromAuth = async (
     userAuth, 
@@ -128,3 +121,33 @@ export const createUserDocumentFromAuth = async (
   export const signOutUser = async () => await signOut(auth);
 
   export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback); 
+
+
+
+  export const addHabit = async (
+    user, 
+    habit,
+    additionalInfo= {}
+  ) => {
+    
+    if (!user) return; 
+    
+    const userHabitDocRef = doc(db, 'user-habit', user.email);
+    const userSnapshot = await getDoc(userHabitDocRef);
+  
+    if (!userSnapshot.exists()) {
+      const { email } = user;
+      
+      try {
+        await setDoc(userHabitDocRef, {
+          habit,
+          ...additionalInfo //object 
+        });
+      } catch (error) {
+        console.log('error creating the user habit', error.message); 
+      }   
+        
+    } 
+  
+     return userHabitDocRef;
+  }

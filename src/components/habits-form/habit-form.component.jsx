@@ -2,15 +2,12 @@ import { useState } from 'react';
 
 import FormInput from '../form-input/form-input.component';
 import Button from '../button/button.component';
-
-import {
-  createAuthUserWithEmailAndPassword,
-  createUserDocumentFromAuth,
-} from '../../utils/firebase/firebase.utils';
-
+import { selectCurrentUser } from '../../store/user/user.selector';
+import {  useSelector } from 'react-redux/es/hooks/useSelector';
 import { 
   HabitContainer,
 } from './habit-form.styles'
+import { addHabit } from '../../utils/firebase/firebase.utils';
 
 
 const defaultFormFields = {
@@ -21,6 +18,7 @@ const defaultFormFields = {
 const HabitForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { habitName } = formFields;
+  const currentUser = useSelector(selectCurrentUser); 
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -29,19 +27,15 @@ const HabitForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { user } = await createAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
+      await addHabit(currentUser, {habitName}); 
 
-      await createUserDocumentFromAuth(user, { displayName });
       resetFormFields();
     } catch (error) {
       
         console.log('user habit creation encountered an error', error);
       }
     }
-  };
+
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -69,6 +63,7 @@ const HabitForm = () => {
     </HabitContainer>
 
   );
+}
 
 
 export default HabitForm;

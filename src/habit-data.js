@@ -22,7 +22,7 @@ const HABIT_DATA = [
    },
    {
     title: 'ritayqf@gmail.com',
-   items: [
+    items: [
      {
        name: "work out", 
        count: 5, 
