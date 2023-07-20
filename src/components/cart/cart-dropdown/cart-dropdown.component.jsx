@@ -25,10 +25,10 @@ const CartDropdown = () => {
         {cartItems.length ? (
           cartItems.map((item) => <CartItem key={item.id} cartItem={item} />)
         ) : (
-          <EmptyMessage>Your cart is empty</EmptyMessage>
+          <EmptyMessage>Your commit message is empty</EmptyMessage>
         )}
       </CartItems>
-      <Button onClick={goToCheckoutHandler}>GO TO CHECKOUT</Button>
+      <Button onClick={goToCheckoutHandler}>COMMIT</Button>
     </CartDropdownContainer>
   );
 };
