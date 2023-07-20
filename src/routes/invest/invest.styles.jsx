@@ -5,6 +5,8 @@ export const InvestPageBodyContainer = styled.div`
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: flex;
     justify-content: space-between;
+    column-gap: 1rem; 
+    
     
 `; 
 
@@ -23,11 +25,12 @@ export const InvestCalcContainer= styled.div`
 `; 
 
 export const SpendingContainer= styled.div`
-    width:60%;
+    width:40%;
     height:100%; 
     display: flex; 
+    padding: 1rem; 
     flex-direction: column; 
-    background-color: pink; 
+    
     
 `; 
 
