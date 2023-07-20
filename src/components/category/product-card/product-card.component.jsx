@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
-import { addItemToCart } from '../../store/cart/cart.reducer';
+import { addItemToCart } from '../../../store/cart/cart.reducer';
 
-import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
+import Button, { BUTTON_TYPE_CLASSES } from '../../button/button.component';
 
 import {
   ProductCardContainer,
