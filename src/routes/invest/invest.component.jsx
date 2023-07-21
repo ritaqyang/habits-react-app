@@ -21,7 +21,7 @@ const Invest = () => {
 
          
             <SpendingContainer>
-                <h2>Does your spending habits match your priorities and goals? </h2>
+                <h2>Do your spending habits match your priorities and goals? </h2>
                 <Spending /> 
                
                 
