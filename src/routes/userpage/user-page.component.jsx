@@ -14,6 +14,7 @@ import { setHabits } from '../../store/habit/habit.reducer';
 import CategoriesPreview from '../categories-preview/categories-preview.component';
 import HabitForm from '../../components/forms/habits-form/habit-form.component';
 
+import AllCalendars from '../../components/tracker-box/AllCalendars/AllCalendars.component';
 
 const UserPage = () => {
     const [date, setDate] = useState(new Date()); 
@@ -48,6 +49,7 @@ const UserPage = () => {
             })} */}
 
             <HabitForm /> 
+            <AllCalendars /> 
             
             <h1 className="header">React Calendar</h1>
             <div className="calendar-container">
