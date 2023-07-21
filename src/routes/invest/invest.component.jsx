@@ -1,5 +1,6 @@
 import InvestCalculator from "../../components/investment/invest-calculator/invest-calculator.component";
 import Donut from "../../components/charts/spending-chart/spending-chart.component";
+import Spending from "../../components/investment/spending/spending.component";
 import {
     InvestCalcContainer,
     InvestPageBodyContainer,
@@ -21,8 +22,8 @@ const Invest = () => {
          
             <SpendingContainer>
                 <h2>Does your spending habits match your priorities and goals? </h2>
-                <Donut /> 
-                <InvestCalcForm /> 
+                <Spending /> 
+               
                 
             </SpendingContainer>
 
