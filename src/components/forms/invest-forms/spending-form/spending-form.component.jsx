@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Button from '../../../button/button.component';
 import SmallFormInput from '../form-input-small/form-input-small.component';
-
+import Chart from 'apexcharts';
 
 
 
@@ -9,8 +9,6 @@ import {
   SpendingFormContainer,
   HalfContainer, 
 } from './spending-form.styles';
-
-
 
 const defaultFormFields = {
 
@@ -34,6 +32,7 @@ const SpendingForm = () => {
     clothes,
     entertainment,
     education, 
+    other,
     savingsAmount, } = formFields;
   
   const resetFormFields = () => {
@@ -60,6 +59,7 @@ const SpendingForm = () => {
   };
 
   return (
+    <>
     <SpendingFormContainer>
 
         
@@ -84,53 +84,54 @@ const SpendingForm = () => {
             />
 
             <SmallFormInput
-            label='Savings'
+            label='Clothes'
             type='text'
             required
             onChange={handleChange}
-            name='savingsAmount'
-            value={savingsAmount}
+            name='clothes'
+            value={clothes}
             />
 
         </HalfContainer>
 
         <HalfContainer>
             <SmallFormInput
-            label='Grocery'
+            label='Utilities'
             type='text'
             required
             onChange={handleChange}
-            name='grocery'
-            value={grocery}
+            name='utilities'
+            value={utilities}
             />
 
             <SmallFormInput
-            label='Rent'
+            label='Going Out'
             type='text'
             required
             onChange={handleChange}
-            name='rent'
-            value={rent}
+            name='goingout'
+            value={goingout}
             />
 
             <SmallFormInput
-            label='Savings'
+            label='Other'
             type='text'
             required
             onChange={handleChange}
-            name='savingsAmount'
-            value={savingsAmount}
+            name='other'
+            value={other}
             />
 
         </HalfContainer>
 
         
         <Button type='submit'>Estimate</Button>
+
       </form>
 
     </SpendingFormContainer>
-      
     
+    </>
 
   );
 }

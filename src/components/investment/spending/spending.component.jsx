@@ -6,7 +6,7 @@ const Spending = () => {
     return (
         <div>
             <Donut />
-            <SpendingForm /> 
+            <SpendingForm />
         </div>
     )
 }; 

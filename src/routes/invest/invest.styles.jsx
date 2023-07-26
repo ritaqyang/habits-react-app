@@ -16,7 +16,7 @@ export const InvestCalcContainer= styled.div`
     height:100%; 
     display: flex; 
     flex-direction: column; 
-    border: solid 1px black; 
+    //border: solid 1px black; 
     &calc {
         display: flex;
         border: solid 1px pink; 
