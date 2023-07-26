@@ -52,8 +52,7 @@ class InvestChart extends Component {
         {
           name: "5%",
           type: "line",
-          data: [15250, 43261, 82226, 127200, 179107, 239017
-          ]
+          data: [15250, 43261, 82226, 127200, 179107, 239017]
         },
         {
           name: "6%",

@@ -13,10 +13,18 @@ class Donut extends Component {
     }
   }
 
+
+  updateChart(spendingArray) {
+
+    this.state.series = spendingArray; 
+
+  }; 
+
   render() {
 
     return (
       <div className="donut">
+        
         <Chart options={this.state.options} series={this.state.series} type="donut" width="380" />
       </div>
     );

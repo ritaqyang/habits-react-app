@@ -27,7 +27,7 @@ function HomeDirectory({categories}) {
           }
       </div>
 
-      <a href="https://www.vecteezy.com/free-photos">Free Stock photos by Vecteezy</a>
+      {/* <a href="https://www.vecteezy.com/free-photos">Free Stock photos by Vecteezy</a> */}
   </div>
 
   );

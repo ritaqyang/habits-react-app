@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import HomeDirectory from "../../components/home-directory/home-directory.component";
 import { selectHabitsMap } from "../../store/habit/habit.selector";
 
-
+import House from "../../components/spline/house.component";
 
 
 function Home() {
@@ -41,6 +41,8 @@ function Home() {
   return (
     <div>
       
+      <House />
+
       <HomeDirectory categories={categories}/> 
      
       {/* {Object.keys(habitsArray).map((title) => {return <div>{title}</div>})};  */}
