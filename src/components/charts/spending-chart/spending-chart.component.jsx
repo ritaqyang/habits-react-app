@@ -1,32 +1,29 @@
 import React, { Component } from 'react';
 import Chart from 'react-apexcharts'; 
-
-
 import Button from '../../button/button.component';
-
+import { selectSpending } from '../../../store/spending/spending.selector';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
 
 class Donut extends Component {
   constructor(props) {
     super(props);
     this.updateCharts = this.updateCharts.bind(this);
-    
-
     this.state = {
       options: {
-        labels: ['Apple', 'Mango', 'Orange', 'Watermelon']
+        labels: ['Grocery', 'Rent', 'Clothes', 'Utilities','GoingOut', 'Other']
       },
-      
-      series: [44, 55, 41, 17, 15],
+      series: [10,10,10,10,10,10],
       
     }
   }
 
   
-  updateCharts() {
+  updateCharts(newSeries){
 
-    const newSeries = [10,10,10,10,10];
-    const newlabels = ['A', 'B', 'C', 'D', 'E'];
-  
+    
+    //const newSeries = useSelector(selectSpending);
+    //const newSeries = [10,10,10,10,10,10];
+    
     this.setState({
       
       series: newSeries,
@@ -43,7 +40,7 @@ class Donut extends Component {
         
         <Chart options={this.state.options} series={this.state.series} label={this.state.labels} type="donut" width="380" />
 
-        <Button type='button' onClick={this.updateCharts}>update</Button>
+        {/* <Button type='button' onClick={this.updateCharts}>update</Button> */}
       </div>
 
 

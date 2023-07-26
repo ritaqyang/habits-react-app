@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export const SPENDING_INITIAL_STATE = {
-  spendArray: [20,20,20,20,20],
+  spendArray: [20,20,20,20,20,20],
 };
 
 export const spendingSlice = createSlice({

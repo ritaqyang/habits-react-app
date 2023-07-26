@@ -1,14 +1,17 @@
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import Button from '../../../button/button.component';
 import SmallFormInput from '../form-input-small/form-input-small.component';
-import Chart from 'apexcharts';
 
+import { useDispatch } from 'react-redux';
+import { setSpending } from '../../../../store/spending/spending.reducer';
+import Donut from '../../../charts/spending-chart/spending-chart.component';
 
 
 import { 
   SpendingFormContainer,
   HalfContainer, 
 } from './spending-form.styles';
+
 
 const defaultFormFields = {
 
@@ -25,32 +28,19 @@ const defaultFormFields = {
 
 const SpendingForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
-  const { grocery,
+  const { 
+    grocery,
     rent,
     utilities,
     goingout, 
     clothes,
-    entertainment,
-    education, 
     other,
-    savingsAmount, } = formFields;
+    } = formFields;
+
   
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-        console.log("user put down spending details"); 
-
-      resetFormFields();
-    } catch (error) {
-      
-        console.log('user spending submission encountered an error', error);
-      }
-    }
-
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -58,12 +48,36 @@ const SpendingForm = () => {
     setFormFields({ ...formFields, [name]: value });
   };
 
+
+
+ 
+  
+  
+  const userInput= [grocery, rent,3,3,3,3]; 
+  console.log("grocery is " + grocery); 
+  console.log("userinput spending array is " + userInput);
+  
+  const dispatch  = useDispatch(); 
+  useEffect( () => {
+
+    const updateSpendingArray = (userInput) =>{
+      
+      dispatch(setSpending(userInput)); 
+    }
+
+    updateSpendingArray(userInput); 
+
+  },[userInput]);   
+
+  
+
+  
+
   return (
     <>
+  
     <SpendingFormContainer>
-
-        
-        <form onSubmit={handleSubmit}>
+        <form >
         <HalfContainer>
             <SmallFormInput
             label='Grocery'
@@ -82,19 +96,6 @@ const SpendingForm = () => {
             name='rent'
             value={rent}
             />
-
-            <SmallFormInput
-            label='Clothes'
-            type='text'
-            required
-            onChange={handleChange}
-            name='clothes'
-            value={clothes}
-            />
-
-        </HalfContainer>
-
-        <HalfContainer>
             <SmallFormInput
             label='Utilities'
             type='text'
@@ -104,6 +105,13 @@ const SpendingForm = () => {
             value={utilities}
             />
 
+            
+
+        </HalfContainer>
+
+        <HalfContainer>
+            
+
             <SmallFormInput
             label='Going Out'
             type='text'
@@ -111,6 +119,14 @@ const SpendingForm = () => {
             onChange={handleChange}
             name='goingout'
             value={goingout}
+            />
+            <SmallFormInput
+            label='Clothes'
+            type='text'
+            required
+            onChange={handleChange}
+            name='clothes'
+            value={clothes}
             />
 
             <SmallFormInput
@@ -123,9 +139,7 @@ const SpendingForm = () => {
             />
 
         </HalfContainer>
-
-        
-        <Button type='submit'>Estimate</Button>
+       
 
       </form>
 
