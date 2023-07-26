@@ -15,6 +15,7 @@ import {
   NavigationContainer,
   NavLinks,
   NavLink,
+  NavLinkOut,
 } from './navigation.styles';
 
 
@@ -43,13 +44,16 @@ const Navigation = () => {
             <NavLink className='nav-link' to="/social-page">
               Social
             </NavLink>
+            <NavLink className='nav-link' to="/invest-page">
+              Invest
+            </NavLink>
 
             
             {currentUser ? (
-              <span className='nav-link'onClick={signOutUser}>
+              <NavLinkOut className='nav-link'onClick={signOutUser}>
                 {' '}
                 SIGN OUT{' '}
-              </span>
+              </NavLinkOut>
             ) : (
               <NavLink className='nav-link' to='/sign-in'>
                 SIGN IN

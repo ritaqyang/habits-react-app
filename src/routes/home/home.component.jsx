@@ -41,7 +41,6 @@ function Home() {
   return (
     <div>
       
-      <House />
 
       <HomeDirectory categories={categories}/> 
      

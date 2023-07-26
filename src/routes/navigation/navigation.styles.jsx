@@ -27,3 +27,11 @@ export const NavLink = styled(Link)`
   &:hover {
     box-shadow: 0 1rem 2rem;
 `;
+
+export const NavLinkOut = styled(Link)`
+  padding: 10px 15px;
+  cursor: pointer;å
+  color: black; 
+  &:hover {
+    color: grey; 
+`;

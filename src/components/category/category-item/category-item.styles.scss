@@ -7,10 +7,11 @@
     justify-content: center;
     flex-direction: row;
     // background-color: rgb(230, 216, 218);
-    border: 3px solid rgba(153, 68, 7, 0.513); 
+    // border: 3px solid rgba(153, 68, 7, 0.513); 
+    border: 1.5px solid black;
 
     &:hover{
-        box-shadow: 0 10px 20px rgba($color-black,.4); 
+        box-shadow: 0 10px 20px rgba(black,.4); 
     }
 
     .category-body-container{
@@ -21,7 +22,7 @@
 
         
         h2{
-            color: $chocolate;
+            color: black;
         }
     }
 
