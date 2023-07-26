@@ -5,7 +5,7 @@ const SocialPage = () => {
 
     return (
         <div>
-            this is the social page
+            this is the social page under construction :3 
             <House /> 
         </div>
     )

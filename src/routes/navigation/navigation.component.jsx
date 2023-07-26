@@ -16,6 +16,7 @@ import {
   NavLinks,
   NavLink,
   NavLinkOut,
+  GreetingsContainer,
 } from './navigation.styles';
 
 
@@ -29,7 +30,19 @@ const Navigation = () => {
         <NavigationContainer>
 
         <InvestIcon />
+        <GreetingsContainer>
+          {currentUser ? (
+            <>
+             
+            <h4> hello, {currentUser.email} </h4>
+            </>
 
+            ) : (
+              <h2>Welcome! </h2>
+            )}
+        </GreetingsContainer>
+        
+        
 
           <NavLinks>
             <NavLink className='nav-link' to='/'>

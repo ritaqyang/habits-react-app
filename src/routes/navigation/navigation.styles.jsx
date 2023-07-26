@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+ 
+
 
 export const NavigationContainer = styled.div`
   width: 100%;
@@ -9,6 +11,12 @@ export const NavigationContainer = styled.div`
   justify-content: space-between;
   margin-bottom: 25px;
 
+`;
+
+export const GreetingsContainer = styled.div`
+  padding-left: 3rem;
+  
+  font-family: 'Verdana';
 `;
 
 export const NavLinks = styled.div`

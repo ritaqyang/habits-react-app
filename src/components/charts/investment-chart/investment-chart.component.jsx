@@ -9,12 +9,7 @@ class InvestChart extends Component {
 
     this.state = {
       optionsMixedChart: {
-        // chart: {
-        //   id: "basic-bar",
-        //   toolbar: {
-        //     show: false
-        //   }
-        // },
+        
         plotOptions: {
           bar: {
             columnWidth: "50%"
