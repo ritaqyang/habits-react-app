@@ -12,17 +12,16 @@ class Donut extends Component {
       options: {
         labels: ['Grocery', 'Rent', 'Clothes', 'Utilities','GoingOut', 'Other']
       },
-      series: [10,10,10,10,10,10],
+      series: props.series,
       
     }
   }
 
   
-  updateCharts(newSeries){
+  updateCharts(){
 
-    
-    //const newSeries = useSelector(selectSpending);
-    //const newSeries = [10,10,10,10,10,10];
+
+    const newSeries = [10,10,10,10,10,10];
     
     this.setState({
       

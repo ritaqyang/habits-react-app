@@ -2,7 +2,7 @@ import { useState, useEffect} from 'react';
 import Button from '../../../button/button.component';
 import SmallFormInput from '../form-input-small/form-input-small.component';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setSpending } from '../../../../store/spending/spending.reducer';
 import Donut from '../../../charts/spending-chart/spending-chart.component';
 
@@ -11,6 +11,8 @@ import {
   SpendingFormContainer,
   HalfContainer, 
 } from './spending-form.styles';
+import { selectSpending } from '../../../../store/spending/spending.selector';
+import TestDonut from '../../../charts/spending-chart/test.component';
 
 
 const defaultFormFields = {
@@ -26,7 +28,7 @@ const defaultFormFields = {
   savingsAmount: 0,
 };
 
-const SpendingForm = () => {
+const SpendingForm = (props) => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { 
     grocery,
@@ -36,6 +38,12 @@ const SpendingForm = () => {
     clothes,
     other,
     } = formFields;
+    const newArray = [grocery,rent,utilities,goingout,clothes,other]; 
+    const changedArray = newArray.map((element) =>  {return (+element)});
+    console.log(changedArray);
+
+
+  const [donutArray, setDonutArray] = useState([]); 
 
   
   const resetFormFields = () => {
@@ -46,38 +54,34 @@ const SpendingForm = () => {
     const { name, value } = event.target;
 
     setFormFields({ ...formFields, [name]: value });
+    
   };
 
-
-
- 
-  
-  
-  const userInput= [grocery, rent,3,3,3,3]; 
-  console.log("grocery is " + grocery); 
-  console.log("userinput spending array is " + userInput);
-  
   const dispatch  = useDispatch(); 
-  useEffect( () => {
+  
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-    const updateSpendingArray = (userInput) =>{
+    try {
+     
+      console.log("grocery is " + grocery); 
+      console.log(formFields); 
+      dispatch(setSpending(changedArray)); 
+      setDonutArray(changedArray); 
+      console.log("donut array is " +donutArray);
       
-      dispatch(setSpending(userInput)); 
+    } catch (error) {
+      console.log('user submit spending failed', error);
     }
+  };
 
-    updateSpendingArray(userInput); 
-
-  },[userInput]);   
-
+  console.log("props.series" + props.series);
   
-
-  
-
   return (
     <>
   
     <SpendingFormContainer>
-        <form >
+        <form onSubmit={handleSubmit} >
         <HalfContainer>
             <SmallFormInput
             label='Grocery'
@@ -104,14 +108,8 @@ const SpendingForm = () => {
             name='utilities'
             value={utilities}
             />
-
-            
-
         </HalfContainer>
-
         <HalfContainer>
-            
-
             <SmallFormInput
             label='Going Out'
             type='text'
@@ -140,10 +138,15 @@ const SpendingForm = () => {
 
         </HalfContainer>
        
-
+        <Button type='submit'>submit the numbers</Button>
+        
       </form>
+      
+
 
     </SpendingFormContainer>
+    
+    
     
     </>
 
