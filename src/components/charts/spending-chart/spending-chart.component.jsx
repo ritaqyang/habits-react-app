@@ -12,20 +12,20 @@ class Donut extends Component {
       options: {
         labels: ['Grocery', 'Rent', 'Clothes', 'Utilities','GoingOut', 'Other']
       },
-      series: props.series,
+      series: [10,10,10,10,14,15]
       
     }
   }
 
   
-  updateCharts(){
+  updateCharts(arr){
 
 
     const newSeries = [10,10,10,10,10,10];
     
     this.setState({
       
-      series: newSeries,
+      series: arr,
     
     });
     

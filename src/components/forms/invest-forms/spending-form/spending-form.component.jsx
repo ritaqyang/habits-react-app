@@ -28,7 +28,8 @@ const defaultFormFields = {
   savingsAmount: 0,
 };
 
-const SpendingForm = (props) => {
+const SpendingForm = () => {
+  
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { 
     grocery,
@@ -75,7 +76,6 @@ const SpendingForm = (props) => {
     }
   };
 
-  console.log("props.series" + props.series);
   
   return (
     <>
@@ -141,6 +141,7 @@ const SpendingForm = (props) => {
         <Button type='submit'>submit the numbers</Button>
         
       </form>
+      
       
 
 
