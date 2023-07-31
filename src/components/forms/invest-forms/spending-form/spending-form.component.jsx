@@ -12,7 +12,6 @@ import {
   HalfContainer, 
 } from './spending-form.styles';
 import { selectSpending } from '../../../../store/spending/spending.selector';
-import TestDonut from '../../../charts/spending-chart/test.component';
 
 
 const defaultFormFields = {

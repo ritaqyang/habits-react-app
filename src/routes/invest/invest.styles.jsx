@@ -6,17 +6,19 @@ export const InvestPageBodyContainer = styled.div`
     display: flex;
     justify-content: space-between;
     column-gap: 1rem; 
+    flex-wrap: wrap;
+    flex-direction: column;
     
     
 `; 
 
 
 export const InvestCalcContainer= styled.div`
-    width:60%;
-    height:100%; 
+    
     display: flex; 
+    width: 40%; 
     flex-direction: column; 
-    //border: solid 1px black; 
+    border: solid 1px black; 
     &calc {
         display: flex;
         border: solid 1px pink; 
@@ -25,8 +27,7 @@ export const InvestCalcContainer= styled.div`
 `; 
 
 export const SpendingContainer= styled.div`
-    width:40%;
-    height:100%; 
+   
     display: flex; 
     padding: 1rem; 
     flex-direction: column; 

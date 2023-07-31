@@ -1,13 +1,12 @@
 import InvestCalculator from "../../components/investment/invest-calculator/invest-calculator.component";
-import Donut from "../../components/charts/spending-chart/spending-chart.component";
-import Spending from "../../components/investment/spending/spending.component";
+
 import {
     InvestCalcContainer,
     InvestPageBodyContainer,
     SpendingContainer,
 } from './invest.styles'; 
 import InvestCalcForm from "../../components/forms/invest-forms/invest-calculator-form/invest-calc-form.component";
-
+import Donutchart from "../../components/charts/spending-chart/donut.component";
 const Invest = () => {
     return (
         <InvestPageBodyContainer>
@@ -22,9 +21,9 @@ const Invest = () => {
          
             <SpendingContainer>
                 <h2>Do your spending habits match your priorities and goals? </h2>
-                <Spending /> 
-               
                 
+               
+                <Donutchart />
             </SpendingContainer>
 
            

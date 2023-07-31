@@ -6,6 +6,7 @@ import SmallFormInput from "../../forms/invest-forms/form-input-small/form-input
 import { 
   SpendingFormContainer,
   HalfContainer, 
+  BigContainer,
 } from './spending-form.styles';
 const defaultFormFields = {
 
@@ -77,6 +78,7 @@ function Donutchart()
 
     return(
         <React.Fragment>
+        <BigContainer>
 
     <SpendingFormContainer>
         <form onSubmit={handleSubmit} >
@@ -149,7 +151,7 @@ function Donutchart()
             <h2 className="text-left">Donut Chart</h2>
             <Chart 
             type="donut"
-            width={1349}
+            width={500}
             height={ 550}
             series={medal}
 
@@ -188,6 +190,7 @@ function Donutchart()
             />
 
             </div>
+            </BigContainer>
         </React.Fragment>
     );
 }

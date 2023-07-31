@@ -1,5 +1,10 @@
 import styled from 'styled-components'; 
 
+export const BigContainer = styled.div`
+  display: flex; 
+  flex-direction: column; 
+  border: 3px black; 
+`;
 export const SpendingFormContainer = styled.div`
   display: flex;
   flex-direction: row;
