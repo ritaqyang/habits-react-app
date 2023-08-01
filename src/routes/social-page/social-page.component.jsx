@@ -3,9 +3,7 @@ import House from "../../components/spline/house.component";
 import SpendingForm from "../../components/forms/invest-forms/spending-form/spending-form.component";
 import { useSelector } from "react-redux";
 import { selectSpending } from "../../store/spending/spending.selector";
-import Donut from "../../components/charts/spending-chart/spending-chart.component";
-import Donutchart from "../../components/charts/spending-chart/donut.component";
-import Button from "../../components/button/button.component";
+import InvestChart from "../../components/charts/investment-chart/investment-chart.component";
 
 const SocialPage = () => {
 
@@ -18,7 +16,7 @@ const SocialPage = () => {
         <div>
             this is the social page under construction :3 
 
-            <Donutchart />
+            <InvestChart /> 
             
             
             
