@@ -10,36 +10,11 @@ const defaultFormFields = {
   savingsAmount: 0,
 };
 
-const testcategory = [2023,2028, 2033, 2038,2043, 2048]; 
-const testdata= [15250, 41943, 77618, 116848, 159987, 207424];
+const defaultCategory = [2023,2028, 2033, 2038,2043, 2048]; 
+const defaultarray4 = [15250, 41943, 77618, 116848, 159987, 207424]; 
+const defaultarray5 = [15250, 43261, 82226, 127200, 179107, 239017]; 
+const defaultarray6 = [15250, 44630,87186, 138736, 201183,276828]; 
   
-const defaultResult = [
-  {
-    id:1, 
-    name: "4%",
-    type:"line",
-    data: [15250, 41943, 77618, 116848, 159987, 207424]
-  },
-  
-  {
-    id:2,
-    name: "5%",
-    type:"column",
-    data: [15250, 43261, 82226, 127200, 179107, 239017]
-  },
-  {
-    id:3,
-    name: "5%",
-    type:"line",
-    data: [15250, 43261, 82226, 127200, 179107, 239017]
-  },
-  {
-    id:4,
-    name: "6%",
-      
-    data: [15250, 44630,87186, 138736, 201183,276828]
-  }
-]; 
 
 const calculateReturns = (initialInvestment, yearlyReturnRate, monthlyContribution, numOfMonths) => {
 
@@ -88,10 +63,11 @@ const InvestChart = () => {
       //   }
       // }; 
 
-      const [category, setCategory] = useState(testcategory); 
-      const [data, setData] = useState(testdata); 
-      const [result, setResult] = useState(defaultResult); 
+      const [category, setCategory] = useState(defaultCategory); 
       const [maxValue, setMaxValue] = useState(240000);       
+
+      const [array4, setArray4 ] = useState(defaultarray4);
+
       
       const [formFields, setFormFields] = useState(defaultFormFields);
       const { monthlyAmount, savingsAmount } = formFields;
@@ -105,25 +81,6 @@ const InvestChart = () => {
       
         return array4; 
       }; 
-
-
-      const temp = getResultWithUserInput(100,0,0.04); 
-      console.log("temp is" + temp); 
-
-      
-      const updateSubField = (objectID, newSubFieldValue) => {
-        const objectIndex = result.findIndex((obj) => obj.id === objectID);
-        console.log("index is " + objectIndex); 
-      
-        if (objectIndex === -1) return;
-      
-        const updatedObject = { ...result[objectIndex], data: newSubFieldValue };
-      
-        const updatedArray = [...result];
-        updatedArray[objectIndex] = updatedObject;
-      
-        setResult(updatedArray); 
-      };
 
 
       const resetFormFields = () => {
@@ -185,12 +142,38 @@ const InvestChart = () => {
           }
         }} 
       
-        series= {result}
+        series={ [
+          {
+            id:1, 
+            name: "4%",
+            type:"line",
+            data: array4,
+          },
+          
+          {
+            id:2,
+            name: "5%",
+            type:"column",
+            data: [15250, 43261, 82226, 127200, 179107, 239017]
+          },
+          {
+            id:3,
+            name: "5%",
+            type:"line",
+            data: [15250, 43261, 82226, 127200, 179107, 239017]
+          },
+          {
+            id:4,
+            name: "6%",
+              
+            data: [15250, 44630,87186, 138736, 201183,276828]
+          }
+        ] 
+      }
         width={800} 
         height={500} 
       />
 
-      <Button onClick={updateSubField(0,getResultWithUserInput(100,0,0.04))}>click </Button>
       
  
     </>
