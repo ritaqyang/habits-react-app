@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import Chart from "react-apexcharts";
 import FormInput from "../../forms/form-input/form-input.component";
 import Button from "../../button/button.component";
@@ -17,16 +17,31 @@ const defaultarray6 = [15250, 44630,87186, 138736, 201183,276828];
   
 
 const calculateReturns = (initialInvestment, yearlyReturnRate, monthlyContribution, numOfMonths) => {
+  const PV = initialInvestment; 
+  const PMT = monthlyContribution; 
+  const n = 12; //number of compounding periods 
+  // const r = Math.pow(1 + yearlyReturnRate, 1 / 12) - 1;
+  const r = yearlyReturnRate/n; 
+  //const MonthlyReturns =  PMT * (((1 + r)**(numOfMonths) - 1) / r)
+  //const initialInvestmentReturns = initialInvestment * ((1+r) ** n ); 
 
-  const P = monthlyContribution; 
-  const n = numOfMonths; 
-  const r = Math.pow(1 + yearlyReturnRate, 1 / 12) - 1;
-  const FV =  P * (Math.pow(1 + r, n )/r);
+  const returns = PV * (1 + r)**(numOfMonths) + (PMT * numOfMonths)
 
-  const initialInvestmentReturns = initialInvestment * ((1+r) ** n ); 
 
-  return initialInvestmentReturns + FV;
+  return Math.trunc(returns);
 }; 
+
+const calculateYearly = (initialInvestment, monthlyContribution, yearlyRate) => {
+  const PV = initialInvestment; 
+  const PMT = monthlyContribution; 
+  const r = yearlyRate; 
+
+  const returns = PV * (1+r) + PMT * 12; 
+
+  return Math.trunc(returns); 
+
+}
+
 
 
 
@@ -67,6 +82,9 @@ const InvestChart = () => {
       const [maxValue, setMaxValue] = useState(240000);       
 
       const [array4, setArray4 ] = useState(defaultarray4);
+      const [array5, setArray5 ] = useState(defaultarray5); 
+      const [array6, setArray6 ] = useState(defaultarray6); 
+
 
       
       const [formFields, setFormFields] = useState(defaultFormFields);
@@ -74,13 +92,25 @@ const InvestChart = () => {
        const getResultWithUserInput = (monthly, initial, yearlyInterest) => {
         const array4 = []; 
         //get array for 4% return 
-      
-        for (let m = 0; m < 6; m++) {
-          array4.push(calculateReturns(initial,yearlyInterest, monthly, 60 * m)); 
+
+        var nextYear = initial; 
+        for (let m = 0; m <= 25; m++) {
+          nextYear  = calculateYearly(nextYear, monthly, yearlyInterest);
+          if (m % 5 == 0 ){
+            array4.push(nextYear);
+          }
+
         }
       
         return array4; 
       }; 
+
+      useEffect(() => {
+        setArray4(getResultWithUserInput(300,10000,0.04)); 
+        setArray5(getResultWithUserInput(300,10000,0.05));
+
+      },[]); 
+
 
 
       const resetFormFields = () => {
@@ -154,13 +184,13 @@ const InvestChart = () => {
             id:2,
             name: "5%",
             type:"column",
-            data: [15250, 43261, 82226, 127200, 179107, 239017]
+            data: array5,
           },
           {
             id:3,
             name: "5%",
             type:"line",
-            data: [15250, 43261, 82226, 127200, 179107, 239017]
+            data: array5,
           },
           {
             id:4,
