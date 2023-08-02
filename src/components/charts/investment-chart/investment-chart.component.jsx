@@ -11,7 +11,7 @@ const defaultFormFields = {
   savingsAmount: 500,
 };
 
-const defaultCategory = [2023,2028, 2033, 2038,2043, 2048]; 
+const defaultCategory = [2023,2028, 2033, 2038,2043, 2048, 2053]; 
 const defaultarray4 = [15250, 41943, 77618, 116848, 159987, 207424]; 
 const defaultarray5 = [15250, 43261, 82226, 127200, 179107, 239017]; 
 const defaultarray6 = [15250, 44630,87186, 138736, 201183,276828]; 
@@ -42,6 +42,16 @@ const calculateYearly = (initialInvestment, monthlyContribution, yearlyRate) => 
 
   return Math.trunc(returns); 
 
+}
+
+const getMaxLabel = (numArray) => {
+  const last = Object.values(numArray);
+  const lastDigit = last.slice(7); 
+  const numofDigits = Math.trunc(Math.log10(lastDigit)); 
+  console.log('num of digits is ' + numofDigits); 
+  const firstNum = lastDigit / (10 ** numofDigits); 
+  const label = Math.trunc(firstNum + 1) * (10 ** numofDigits); 
+  return label;
 }
 
 
@@ -97,6 +107,7 @@ const InvestChart = () => {
         //get array for 4% return 
 
         var nextYear = initial; 
+        array4.push(nextYear); 
         for (let m = 0; m <= 30; m++) {
           nextYear  = calculateYearly(nextYear, monthly, yearlyInterest);
           if (m % 5 == 0 ){
@@ -116,15 +127,16 @@ const InvestChart = () => {
         event.preventDefault();
         try {
             console.log("user put down investment"); 
-            setArray4(getResultWithUserInput(monthlyAmount,savingsAmount,0.04).slice(0,6));
+            setArray4(getResultWithUserInput(monthlyAmount,savingsAmount,0.04).slice(0,7));
             const arr5 =  getResultWithUserInput(monthlyAmount,savingsAmount,0.05); 
-            setArray5(arr5.slice(0,6)); 
+            setArray5(arr5.slice(0,7)); 
             setArray7(arr5.slice(1,)); 
             
-            const arr6 = getResultWithUserInput(monthlyAmount,savingsAmount,0.06).slice(0,6);
+            const arr6 = getResultWithUserInput(monthlyAmount,savingsAmount,0.06).slice(0,7);
             setArray6(arr6);
-            setMaxValue(arr6[-2]); 
-            console.log(maxValue);  
+            const maxLabel = getMaxLabel(arr5);
+            console.log(maxLabel);
+            setMaxValue(maxLabel); 
 
             //resetFormFields();
         } catch (error) {

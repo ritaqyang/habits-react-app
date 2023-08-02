@@ -1,4 +1,4 @@
-import InvestCalculator from "../../components/investment/invest-calculator/invest-calculator.component";
+import InvestChart from '../../components/charts/investment-chart/investment-chart.component';
 
 import {
     InvestCalcContainer,
@@ -10,15 +10,11 @@ import Donutchart from "../../components/charts/spending-chart/donut.component";
 const Invest = () => {
     return (
         <InvestPageBodyContainer>
-            <InvestCalcContainer>
-                <h2>this is investment page </h2> 
 
-                <InvestCalculator title={"What would your investment look like if you start today"}/>
-                <InvestCalculator title={"What would your investment look like if you started 5 years ago today"}/>
-                
-            </InvestCalcContainer>
-
-         
+            <h3>click estimate to see what the results look like with 500 initial investment and 100 monthly contribution! </h3>
+            
+            
+            <InvestChart />
             <SpendingContainer>
                 <h2>Do your spending habits match your priorities and goals? </h2>
                 
