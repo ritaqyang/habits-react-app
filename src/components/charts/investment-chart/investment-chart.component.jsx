@@ -1,19 +1,21 @@
 import React, { Component, useEffect } from "react";
 import Chart from "react-apexcharts";
 import FormInput from "../../forms/form-input/form-input.component";
+import SmallFormInput from "../../forms/invest-forms/form-input-small/form-input-small.component";
 import Button from "../../button/button.component";
-import {InvestFormContainer} from './investment-chart.styles'; 
 import { useState } from "react";
+import {InvestFormContainer} from './investment-chart.styles'; 
 
 const defaultFormFields = {
-  monthlyAmount: 0,
-  savingsAmount: 0,
+  monthlyAmount: 100,
+  savingsAmount: 500,
 };
 
 const defaultCategory = [2023,2028, 2033, 2038,2043, 2048]; 
 const defaultarray4 = [15250, 41943, 77618, 116848, 159987, 207424]; 
 const defaultarray5 = [15250, 43261, 82226, 127200, 179107, 239017]; 
 const defaultarray6 = [15250, 44630,87186, 138736, 201183,276828]; 
+
   
 
 const calculateReturns = (initialInvestment, yearlyReturnRate, monthlyContribution, numOfMonths) => {
@@ -79,11 +81,12 @@ const InvestChart = () => {
       // }; 
 
       const [category, setCategory] = useState(defaultCategory); 
-      const [maxValue, setMaxValue] = useState(240000);       
+      const [maxValue, setMaxValue] = useState(300000);       
 
       const [array4, setArray4 ] = useState(defaultarray4);
       const [array5, setArray5 ] = useState(defaultarray5); 
       const [array6, setArray6 ] = useState(defaultarray6); 
+      const [array7, setArray7] = useState([]);
 
 
       
@@ -94,23 +97,15 @@ const InvestChart = () => {
         //get array for 4% return 
 
         var nextYear = initial; 
-        for (let m = 0; m <= 25; m++) {
+        for (let m = 0; m <= 30; m++) {
           nextYear  = calculateYearly(nextYear, monthly, yearlyInterest);
           if (m % 5 == 0 ){
             array4.push(nextYear);
           }
 
         }
-      
         return array4; 
-      }; 
-
-      useEffect(() => {
-        setArray4(getResultWithUserInput(300,10000,0.04)); 
-        setArray5(getResultWithUserInput(300,10000,0.05));
-
-      },[]); 
-
+      };
 
 
       const resetFormFields = () => {
@@ -121,8 +116,17 @@ const InvestChart = () => {
         event.preventDefault();
         try {
             console.log("user put down investment"); 
-    
-          resetFormFields();
+            setArray4(getResultWithUserInput(monthlyAmount,savingsAmount,0.04).slice(0,6));
+            const arr5 =  getResultWithUserInput(monthlyAmount,savingsAmount,0.05); 
+            setArray5(arr5.slice(0,6)); 
+            setArray7(arr5.slice(1,)); 
+            
+            const arr6 = getResultWithUserInput(monthlyAmount,savingsAmount,0.06).slice(0,6);
+            setArray6(arr6);
+            setMaxValue(arr6[-2]); 
+            console.log(maxValue);  
+
+            //resetFormFields();
         } catch (error) {
           
             console.log('user investment submission encountered an error', error);
@@ -148,6 +152,32 @@ const InvestChart = () => {
 
     return (
      <>
+      <InvestFormContainer>
+        <form onSubmit={handleSubmit}>
+        <SmallFormInput
+          label='Monthly Contribution'
+          type='text'
+          required
+          onChange={handleChange}
+          name='monthlyAmount'
+          value={monthlyAmount}
+        />
+
+        <SmallFormInput
+          label='Savings'
+          type='text'
+          required
+          onChange={handleChange}
+          name='savingsAmount'
+          value={savingsAmount}
+        />
+
+
+        <Button type='submit'>Estimate</Button>
+        </form>
+
+      </InvestFormContainer>
+
       <Chart 
         options={{
           chart: {
@@ -196,7 +226,13 @@ const InvestChart = () => {
             id:4,
             name: "6%",
               
-            data: [15250, 44630,87186, 138736, 201183,276828]
+            data: array6,
+          },
+          {
+            id:5,
+            name: "5% starting 5 years ago",
+            type:"column",
+            data: array7,
           }
         ] 
       }
