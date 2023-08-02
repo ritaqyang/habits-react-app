@@ -26,9 +26,9 @@ export const Input = styled.input`
   background-color: white;
   color: ${subColor};
   font-size: 15px;
-  padding: 3px 3px 5px 5px;
+  padding: 3px 3px 5px 10px;
   display: block;
-  width: 80%;
+  width: 100%;
   border-radius: 0;
   border: 1px solid ${subColor};
   margin: 5px 0;

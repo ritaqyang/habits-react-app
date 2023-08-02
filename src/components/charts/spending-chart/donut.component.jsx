@@ -10,26 +10,24 @@ import {
 } from './spending-form.styles';
 const defaultFormFields = {
 
-    grocery: 0,
-    rent: 0,
-    utilities: 0, 
-    goingout: 0, 
-    clothes: 0,
-    entertainment: 0,
-    education: 0, 
-    other: 0,
-    savingsAmount: 0,
+    grocery: 500,
+    rent: 2000  ,
+    utilities: 150  , 
+    goingout: 400, 
+    clothes: 200,
+    other: 100,
+    entertainment: 150,
+    education: 100, 
+    savingsAmount: 100,
   };
 const labels = ["grocery","rent","utilities","goingout", "shopping","other"]; 
 const data = [500,1700,100,500,200,300]; 
 function Donutchart()
 {
-    const [contryname, setCountryname]= useState(labels);
-    const [medal, setMedal]= useState(data);
+    const [categoryArray, setCategoryArray]= useState(labels);
+    const [userData, setUserData]= useState(data);
+    const [isClicked, setIsClicked] = useState(false); 
     
-      
-      
-        
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { 
         grocery,
@@ -38,13 +36,16 @@ function Donutchart()
         goingout, 
         clothes,
         other,
+        entertainment,
+        education,
+        savingsAmount,
         } = formFields;
-        const newArray = [grocery,rent,utilities,goingout,clothes,other]; 
+        const newArray = [grocery,rent,utilities,goingout,clothes,other,entertainment,education,savingsAmount]; 
+        //get all numbers instead of string
         const changedArray = newArray.map((element) =>  {return (+element)});
         console.log(changedArray);
     
     
-    const [donutArray, setDonutArray] = useState([]); 
     
     
     const resetFormFields = () => {
@@ -53,18 +54,17 @@ function Donutchart()
     
     const handleChange = (event) => {
         const { name, value } = event.target;
-    
         setFormFields({ ...formFields, [name]: value });
         
     };
+
+    
     const handleSubmit = async (event) => {
         event.preventDefault();
     
         try {
-         
-          
           console.log(formFields); 
-          setMedal(changedArray); 
+          setUserData(changedArray); 
           console.log("donut array is " +changedArray);
           
         } catch (error) {
@@ -72,9 +72,24 @@ function Donutchart()
         }
       };
 
-    
+      const handleClick = () => {
+        
+        changedArray.splice(1,1,0);
+        console.log(changedArray);
+        setUserData(changedArray); 
+      }
 
-   
+    // useEffect(() => {
+    //   const setRent = () => {
+    //   setFormFields({...formFields,[rent]:0}); 
+
+    //   }
+
+    //   setRent(); 
+    // },[isClicked]); 
+
+    
+  
 
     return(
         <React.Fragment>
@@ -135,31 +150,56 @@ function Donutchart()
             name='other'
             value={other}
             />
+        </HalfContainer>
+        <HalfContainer>
+            <SmallFormInput
+            label='Entertainment'
+            type='text'
+            required
+            onChange={handleChange}
+            name='entertainment'
+            value={entertainment}
+            />
 
+            <SmallFormInput
+            label='Skills & Education'
+            type='text'
+            required
+            onChange={handleChange}
+            name='education'
+            value={education}
+            />
+            <SmallFormInput
+            label='Savings'
+            type='text'
+            required
+            onChange={handleChange}
+            name='savingsAmount'
+            value={savingsAmount}
+            />
         </HalfContainer>
        
         <Button type='submit'>submit the numbers</Button>
         
       </form>
+      <Button onClick={handleClick}>see distribution without rent</Button>
       
       
 
 
     </SpendingFormContainer>
     
-            <div className='container-fluid mt-3 mb-3'>        
-            <h2 className="text-left">Donut Chart</h2>
             <Chart 
             type="donut"
             width={500}
             height={ 550}
-            series={medal}
+            series={userData}
 
             options={{
-             labels:contryname,
+             labels:categoryArray,
              title:{
-                text:"Medal Country Name",
-               // align:"center",
+                text:"spending distribution",
+                align:"center",
              },
 
              plotOptions:{
@@ -189,7 +229,6 @@ function Donutchart()
             
             />
 
-            </div>
             </BigContainer>
         </React.Fragment>
     );

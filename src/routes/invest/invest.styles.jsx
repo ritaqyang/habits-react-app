@@ -7,7 +7,7 @@ export const InvestPageBodyContainer = styled.div`
     justify-content: space-between;
     column-gap: 1rem; 
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: row;
     
     
 `; 
