@@ -2,19 +2,12 @@ import {useState} from 'react';
 import Calendar from 'react-calendar'; 
 import { selectCurrentUser } from '../../store/user/user.selector';
 import { useSelector } from 'react-redux';
-import { selectHabits, selectHabitsMap } from '../../store/habit/habit.selector';
+import { selectHabitsMap } from '../../store/habit/habit.selector';
 import { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
 import {  useDispatch } from 'react-redux';
-import { addCollectionAndDocuments, getHabitsfromDatabase, getUserDocuments } from '../../utils/firebase/firebase.utils';
-import { getCategoriesAndDocuments } from '../../utils/firebase/firebase.utils';
-
-import HABIT_DATA from '../../habit-data';
+import {getHabitsfromDatabase } from '../../utils/firebase/firebase.utils';
 import { setHabits } from '../../store/habit/habit.reducer';
-import CategoriesPreview from '../categories-preview/categories-preview.component';
 import HabitForm from '../../components/forms/habits-form/habit-form.component';
-
-import AllCalendars from '../../components/tracker-box/AllCalendars/AllCalendars.component';
 import UserHabitsBoard from '../../components/habits/user-habits-board/user-habits-board.component';
 
 const UserPage = () => {
@@ -44,25 +37,6 @@ const UserPage = () => {
     // useEffect(() => {
     //     addCollectionAndDocuments('habits', HABIT_DATA )
     // }, []); 
-
-
-//     const dispatch = useDispatch(); 
-    
-//     useEffect(() => {
-//     const getHabitsMap = async () => {
-        
-//         if (!currentUser) return; 
-//       const habitsArray = await getCategoriesAndDocuments('user-habit',currentUser.email,'Habits');
-//       console.log(habitsArray);
-//       dispatch(setHabits(habitsArray));
-//     };
-
-//     getHabitsMap();
-//   });
-
-//      const arr = useSelector(selectHabits); 
-//      console.log('usselect array is ' + arr);
-
 
    
     return (
