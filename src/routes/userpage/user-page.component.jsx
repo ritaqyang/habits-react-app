@@ -15,6 +15,7 @@ import CategoriesPreview from '../categories-preview/categories-preview.componen
 import HabitForm from '../../components/forms/habits-form/habit-form.component';
 
 import AllCalendars from '../../components/tracker-box/AllCalendars/AllCalendars.component';
+import UserHabitsBoard from '../../components/habits/user-habits-board/user-habits-board.component';
 
 const UserPage = () => {
     const [date, setDate] = useState(new Date()); 
@@ -70,10 +71,8 @@ const UserPage = () => {
 
 
             <HabitForm /> 
-            {arr}
 
-
-
+            <UserHabitsBoard /> 
 
             <AllCalendars /> 
             
