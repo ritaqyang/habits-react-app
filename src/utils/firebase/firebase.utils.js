@@ -23,8 +23,10 @@ import {
   writeBatch,
   query,
   getDocs,
+  updateDoc,
 } from 'firebase/firestore';
 import { getDatabase, ref, orderByChild } from "firebase/database";
+import { setHabits } from "../../store/habit/habit.reducer";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -75,6 +77,15 @@ export const getCategoriesAndDocuments = async (categories) => {
   const querySnapshot = await getDocs(q);
   return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
 };
+
+export const getHabitsfromDatabase = async (email) => {
+  const Ref= collection(db,'user-habit',email,'Habits'); 
+  const q = query(Ref); 
+
+  const Snapshot = await getDocs(q); 
+  return Snapshot.docs.map((docSnapshot) => docSnapshot.data()); 
+
+}
 
 
 
@@ -132,22 +143,35 @@ export const createUserDocumentFromAuth = async (
     
     if (!user) return; 
     
-    const userHabitDocRef = doc(db, 'user-habit', user.email);
+    const userHabitDocRef = doc(db, 'user-habit', user.email,"Habits",habit);
     const userSnapshot = await getDoc(userHabitDocRef);
   
     if (!userSnapshot.exists()) {
-      const { email } = user;
       
       try {
+        console.log('creating a new habit doc for user, user email is ' +user.email);
         await setDoc(userHabitDocRef, {
-          habit,
-          ...additionalInfo //object 
-        });
+          
+            habitName:habit,
+            count:0,
+            ...additionalInfo,
+           //object 
+      });
+
+        
       } catch (error) {
         console.log('error creating the user habit', error.message); 
       }   
-        
     } 
+
+    else{
+      try {
+        console.log("user habit doc already exist - adding a new habit, user email is " +  user.email); 
+        
+      } catch (error) {
+        console.log('error adding to existing user habit doc'); 
+      }
+    }
   
      return userHabitDocRef;
   }

@@ -2,11 +2,11 @@ import {useState} from 'react';
 import Calendar from 'react-calendar'; 
 import { selectCurrentUser } from '../../store/user/user.selector';
 import { useSelector } from 'react-redux';
-import { selectHabitsMap } from '../../store/habit/habit.selector';
+import { selectHabits, selectHabitsMap } from '../../store/habit/habit.selector';
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import {  useDispatch } from 'react-redux';
-import { addCollectionAndDocuments, getUserDocuments } from '../../utils/firebase/firebase.utils';
+import { addCollectionAndDocuments, getHabitsfromDatabase, getUserDocuments } from '../../utils/firebase/firebase.utils';
 import { getCategoriesAndDocuments } from '../../utils/firebase/firebase.utils';
 
 import HABIT_DATA from '../../habit-data';
@@ -18,23 +18,49 @@ import AllCalendars from '../../components/tracker-box/AllCalendars/AllCalendars
 
 const UserPage = () => {
     const [date, setDate] = useState(new Date()); 
-    const currentUser = useSelector(selectCurrentUser); 
+   const currentUser = useSelector(selectCurrentUser); 
+   const dispatch = useDispatch();
+   const getHabitsMap = async () => {
+
+            console.log("get habgits map function"); 
+        
+          const habitsArray = await getHabitsfromDatabase(currentUser.email);
+          console.log(habitsArray);
+          dispatch(setHabits(habitsArray));
+        };
+
+    useEffect(()=> {
+
+        currentUser && getHabitsMap();
 
 
-    useEffect(() => {
-        addCollectionAndDocuments('habits', HABIT_DATA )
-    }, []); 
+    },[]); 
+
+    const arr = useSelector(selectHabitsMap); 
+   
+
+
+    // useEffect(() => {
+    //     addCollectionAndDocuments('habits', HABIT_DATA )
+    // }, []); 
 
 
 //     const dispatch = useDispatch(); 
+    
 //     useEffect(() => {
 //     const getHabitsMap = async () => {
-//       const habitsArray = await getCategoriesAndDocuments('habits');
+        
+//         if (!currentUser) return; 
+//       const habitsArray = await getCategoriesAndDocuments('user-habit',currentUser.email,'Habits');
+//       console.log(habitsArray);
 //       dispatch(setHabits(habitsArray));
 //     };
 
 //     getHabitsMap();
-//   }, []);
+//   });
+
+//      const arr = useSelector(selectHabits); 
+//      console.log('usselect array is ' + arr);
 
 
    
@@ -43,12 +69,12 @@ const UserPage = () => {
             this is the user page {currentUser && currentUser.email}
 
 
-            {/* {Object.keys(habitsArray).map((title) => {
-                const userDoc= habitsArray[title]; 
-                return <div>title </div>; 
-            })} */}
-
             <HabitForm /> 
+            {arr}
+
+
+
+
             <AllCalendars /> 
             
             <h1 className="header">React Calendar</h1>

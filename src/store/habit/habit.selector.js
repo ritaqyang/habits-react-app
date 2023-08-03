@@ -11,8 +11,8 @@ export const selectHabitsMap = createSelector(
     [selectHabits],
     (habits) =>
       habits.reduce((acc, habit) => {
-        const { title, items } = habit;
-        acc[title.toLowerCase()] = items;
+        const { habitName, count } = habit;
+        acc[habitName] = count;
         return acc;
       }, {})
   );

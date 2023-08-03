@@ -27,7 +27,8 @@ const HabitForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await addHabit(currentUser, {habitName}); 
+      await addHabit(currentUser, habitName); 
+      console.log('habit added '+habitName ); 
 
       resetFormFields();
     } catch (error) {
@@ -56,6 +57,7 @@ const HabitForm = () => {
           name='habitName'
           value={habitName}
         />
+      
 
         
         <Button type='submit'>Commit</Button>
