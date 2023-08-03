@@ -35,7 +35,7 @@ const UserPage = () => {
         currentUser && getHabitsMap();
 
 
-    },[]); 
+    },[currentUser]); 
 
     const arr = useSelector(selectHabitsMap); 
    
@@ -74,7 +74,6 @@ const UserPage = () => {
 
             <UserHabitsBoard /> 
 
-            <AllCalendars /> 
             
             <h1 className="header">React Calendar</h1>
             <div className="calendar-container">
