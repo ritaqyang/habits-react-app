@@ -202,4 +202,20 @@ export const createUserDocumentFromAuth = async (
         console.log('error adding completed days', error.message); 
       }   
     } 
-  }
+  }; 
+
+
+  export const retrieveCompletedDays = async(email,habitName) => {
+    const Ref= doc(db,'user-habit',email,'Habits',habitName); 
+    const docSnapshot = await getDoc(Ref);
+    if (docSnapshot.exists()){
+      console.log("document data" , docSnapshot.data().count);
+      return docSnapshot.data().count; 
+    
+    } else {
+      // docSnap.data() will be undefined in this case
+      console.log("No such document!");
+    }
+  }; 
+
+  

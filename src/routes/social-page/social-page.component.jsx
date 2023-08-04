@@ -9,6 +9,7 @@ const SocialPage = () => {
             this is the social page under construction :3 
 
             <Calendar habitName="read"/> 
+            <Calendar habitName="piano" />
             
             
             

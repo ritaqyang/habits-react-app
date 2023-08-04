@@ -1,11 +1,11 @@
 
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import moment from 'moment';
 import { MdCheck } from 'react-icons/md';
 import './calendar.styles.css';
 import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../../store/user/user.selector';
-import { updateCompletedHabit } from '../../../utils/firebase/firebase.utils';
+import { retrieveCompletedDays, updateCompletedHabit } from '../../../utils/firebase/firebase.utils';
 
 const Calendar = ({habitName}) => {
   const [completedDays, setCompletedDays] = useState([]);
@@ -24,6 +24,22 @@ const Calendar = ({habitName}) => {
     setCompletedDays(newCompletedDays);
     updateCompletedHabit(currentUser,habitName,newCompletedDays);
   };
+
+  useEffect(() => {
+    
+    if (currentUser) {
+
+      const email = currentUser.email;
+      const func = async() => {
+        const arrayObj = await retrieveCompletedDays(email,habitName);
+        const valuesArray = Object.values(arrayObj);
+        console.log("values aray :   "+ valuesArray) ;
+        setCompletedDays(valuesArray); 
+      }
+      func(); 
+      
+    }
+  }, [currentUser]);
 
   const renderCalendar = () => {
     
@@ -64,7 +80,7 @@ const Calendar = ({habitName}) => {
 
   const reportCompletedDays = () => {
     const array = []; 
-    console.log(completedDays);
+    
     completedDays.forEach((day)=>{
       array.push(<div>{month} {day}</div>)
     }); 
@@ -81,7 +97,7 @@ const Calendar = ({habitName}) => {
       {renderCalendar()}
     </div>
       
-    <div> completed days: {reportCompletedDays()}</div>
+    <div> {habitName} completed days: {reportCompletedDays()}</div>
     </>
   );
 };
