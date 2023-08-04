@@ -8,7 +8,7 @@ const SocialPage = () => {
         <div>
             this is the social page under construction :3 
 
-            <Calendar /> 
+            <Calendar habitName="read"/> 
             
             
             

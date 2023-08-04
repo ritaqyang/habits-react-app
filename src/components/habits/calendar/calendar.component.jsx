@@ -3,13 +3,18 @@ import React, { useState } from 'react';
 import moment from 'moment';
 import { MdCheck } from 'react-icons/md';
 import './calendar.styles.css';
+import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '../../../store/user/user.selector';
+import { updateCompletedHabit } from '../../../utils/firebase/firebase.utils';
 
-const Calendar = () => {
+const Calendar = ({habitName}) => {
   const [completedDays, setCompletedDays] = useState([]);
   const today = moment();
   // const month = today.month(); 
   const month = today.format('MMM'); 
   console.log("todary is : " + month); 
+
+  const currentUser = useSelector(selectCurrentUser); 
 
   const handleDayClick = (day) => {
     const newCompletedDays = completedDays.includes(day)
@@ -17,6 +22,7 @@ const Calendar = () => {
       : [...completedDays, day];
 
     setCompletedDays(newCompletedDays);
+    updateCompletedHabit(currentUser,habitName,newCompletedDays);
   };
 
   const renderCalendar = () => {
@@ -63,7 +69,9 @@ const Calendar = () => {
       array.push(<div>{month} {day}</div>)
     }); 
     return array; 
-  }
+  }; 
+
+
 
   return (
     <>

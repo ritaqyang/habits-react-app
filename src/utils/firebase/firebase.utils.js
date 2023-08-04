@@ -175,3 +175,31 @@ export const createUserDocumentFromAuth = async (
   
      return userHabitDocRef;
   }
+
+
+  export const updateCompletedHabit = async (
+    user, 
+    habit,
+    completedDays,
+    additionalInfo= {}
+  ) => {
+    
+    if (!user) return; 
+    
+    const userHabitDocRef = doc(db, 'user-habit', user.email,"Habits",habit);
+    const userSnapshot = await getDoc(userHabitDocRef);
+  
+    if (userSnapshot.exists()) {
+      
+      try {
+        console.log('adding habit logs for ' + user.email);
+        await updateDoc(userHabitDocRef, {
+          
+            count: completedDays,
+            ...additionalInfo,
+      });
+      } catch (error) {
+        console.log('error adding completed days', error.message); 
+      }   
+    } 
+  }
