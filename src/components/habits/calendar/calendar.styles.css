@@ -1,0 +1,39 @@
+/* src/components/Calendar.css */
+
+
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .day-of-week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: bold;
+  }
+  .empty-day {
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .day {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    /* justify-content: center;
+    align-items: center; */
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  .completed {
+    background-color: green;
+    color: white;
+  }
+  
+  .check-icon {
+    margin-left: 5px;
+  }
+  

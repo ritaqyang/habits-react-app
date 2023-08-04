@@ -1,5 +1,6 @@
 
-import UserHabitsBoard from "../../components/habits/user-habits-board/user-habits-board.component";
+import Calendar from "../../components/habits/calendar/calendar.component";
+
 const SocialPage = () => {
 
 
@@ -7,8 +8,7 @@ const SocialPage = () => {
         <div>
             this is the social page under construction :3 
 
-            <UserHabitsBoard />
-
+            <Calendar /> 
             
             
             
