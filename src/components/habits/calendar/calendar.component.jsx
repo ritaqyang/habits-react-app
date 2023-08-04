@@ -15,18 +15,24 @@ const Calendar = ({habitName}) => {
   console.log("todary is : " + month); 
 
   const currentUser = useSelector(selectCurrentUser); 
-
+  
   const handleDayClick = (day) => {
+
+    const isAdding =  !completedDays.includes(day); 
     const newCompletedDays = completedDays.includes(day)
       ? completedDays.filter((completedDay) => completedDay !== day)
       : [...completedDays, day];
 
+      
+
     setCompletedDays(newCompletedDays);
-    updateCompletedHabit(currentUser,habitName,newCompletedDays);
+    //update to firebase 
+    updateCompletedHabit(currentUser,habitName,newCompletedDays,isAdding);
+
   };
 
   useEffect(() => {
-    
+    //retrieve completd days from firebase 
     if (currentUser) {
 
       const email = currentUser.email;

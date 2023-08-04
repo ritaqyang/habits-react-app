@@ -10,6 +10,8 @@ import { setHabits } from '../../store/habit/habit.reducer';
 import HabitForm from '../../components/forms/habits-form/habit-form.component';
 import UserHabitsBoard from '../../components/habits/user-habits-board/user-habits-board.component';
 
+import { GreetingsContainer } from './user-page.styles';
+
 const UserPage = () => {
     const [date, setDate] = useState(new Date()); 
    const currentUser = useSelector(selectCurrentUser); 
@@ -45,17 +47,16 @@ const UserPage = () => {
 
 
             <HabitForm /> 
-
             <UserHabitsBoard /> 
 
             
-            <h1 className="header">React Calendar</h1>
+            {/* <h1 className="header">React Calendar</h1>
             <div className="calendar-container">
                 <Calendar onChange={setDate} value={date}/>
             </div>
             <div className="text-center">
                 Selected date: {date.toDateString()}
-            </div>
+            </div> */}
         </div>
     )
 }; 

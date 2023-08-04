@@ -6,8 +6,13 @@ import { selectCurrentUser } from '../../../store/user/user.selector';
 import {  useSelector } from 'react-redux/es/hooks/useSelector';
 import { 
   HabitContainer,
+  ExisitngHabitsContainer,
+  HalfContainer,
 } from './habit-form.styles'
 import { addHabit } from '../../../utils/firebase/firebase.utils';
+import { selectHabitsMap } from '../../../store/habit/habit.selector';
+import { useDispatch } from 'react-redux';
+import { setHabits } from '../../../store/habit/habit.reducer';
 
 
 const defaultFormFields = {
@@ -16,9 +21,11 @@ const defaultFormFields = {
 };
 
 const HabitForm = () => {
+  const habitsMap = useSelector(selectHabitsMap); 
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { habitName } = formFields;
   const currentUser = useSelector(selectCurrentUser); 
+  const dispatch = useDispatch(); 
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -29,6 +36,7 @@ const HabitForm = () => {
     try {
       await addHabit(currentUser, habitName); 
       console.log('habit added '+habitName ); 
+      dispatch(setHabits())
 
       resetFormFields();
     } catch (error) {
@@ -46,8 +54,27 @@ const HabitForm = () => {
 
   return (
     <HabitContainer>
-      <h2>Where do you see yourself in 2 years? </h2>
-      <span>write down a habit that you want to start today</span>
+      <HalfContainer>
+         <h2>Where do you see yourself in 2 years? </h2>
+     
+      <span>Your existing habits in the database are listed below: </span>
+      <ExisitngHabitsContainer>
+        {Object.keys(habitsMap).map((habitName) => {
+        return (
+            <>
+            
+          <div>{habitName} </div>
+         
+          </>
+        );
+      })}
+
+      </ExisitngHabitsContainer>
+      </HalfContainer>
+     
+      <HalfContainer>
+
+         <h2>write down a habit that you want to start today</h2>
       <form onSubmit={handleSubmit}>
         <FormInput
           label='Habit Name'
@@ -62,6 +89,8 @@ const HabitForm = () => {
         
         <Button type='submit'>Commit</Button>
       </form>
+      </HalfContainer>
+  
     </HabitContainer>
 
   );

@@ -24,6 +24,7 @@ import {
   query,
   getDocs,
   updateDoc,
+  increment,
 } from 'firebase/firestore';
 import { getDatabase, ref, orderByChild } from "firebase/database";
 import { setHabits } from "../../store/habit/habit.reducer";
@@ -154,6 +155,7 @@ export const createUserDocumentFromAuth = async (
           
             habitName:habit,
             count:0,
+            completedDays:{},
             ...additionalInfo,
            //object 
       });
@@ -181,6 +183,7 @@ export const createUserDocumentFromAuth = async (
     user, 
     habit,
     completedDays,
+    isAdding,
     additionalInfo= {}
   ) => {
     
@@ -195,7 +198,8 @@ export const createUserDocumentFromAuth = async (
         console.log('adding habit logs for ' + user.email);
         await updateDoc(userHabitDocRef, {
           
-            count: completedDays,
+            completedDays: completedDays,
+            count:increment(1),
             ...additionalInfo,
       });
       } catch (error) {
@@ -209,8 +213,8 @@ export const createUserDocumentFromAuth = async (
     const Ref= doc(db,'user-habit',email,'Habits',habitName); 
     const docSnapshot = await getDoc(Ref);
     if (docSnapshot.exists()){
-      console.log("document data" , docSnapshot.data().count);
-      return docSnapshot.data().count; 
+      console.log("document data" , docSnapshot.data().completedDays);
+      return docSnapshot.data().completedDays; 
     
     } else {
       // docSnap.data() will be undefined in this case
