@@ -8,10 +8,6 @@ import Calendar from '../calendar/calendar.component';
 const UserHabitsBoard = () => {
   const habitsMap = useSelector(selectHabitsMap); 
 
-  // const getCalendars = () => {
-  //   habitsMap 
-  // }
-
   return (
     <Fragment>
 

@@ -10,6 +10,7 @@ export const CategoryContainer = styled.div`
     padding-top: 5rem;
     padding-bottom: 5rem; 
     flex-wrap: wrap;
+   
 `;
 
 export const WebsiteFeatures = styled.div`

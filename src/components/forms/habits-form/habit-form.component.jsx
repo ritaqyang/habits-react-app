@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import FormInput from '../form-input/form-input.component';
 import Button from '../../button/button.component';
 import { selectCurrentUser } from '../../../store/user/user.selector';
@@ -12,7 +11,7 @@ import {
 import { addHabit } from '../../../utils/firebase/firebase.utils';
 import { selectHabitsMap } from '../../../store/habit/habit.selector';
 import { useDispatch } from 'react-redux';
-import { setHabits } from '../../../store/habit/habit.reducer';
+import { setHabits, setIsHabitsChanged } from '../../../store/habit/habit.reducer';
 
 
 const defaultFormFields = {
@@ -34,10 +33,9 @@ const HabitForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await addHabit(currentUser, habitName); 
+      await addHabit(currentUser, habitName); // adding habit to firebase (create new user document)
       console.log('habit added '+habitName ); 
-      dispatch(setHabits())
-
+      setIsHabitsChanged('user added new habit ' + habitName); 
       resetFormFields();
     } catch (error) {
       

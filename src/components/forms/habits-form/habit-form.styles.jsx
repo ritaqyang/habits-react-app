@@ -28,6 +28,8 @@ export const ExisitngHabitsContainer = styled.div`
   padding: 1rem 1rem 3rem 3rem; 
   margin: 1rem 1rem 0 0;
   border: 1px solid; 
+  flex-direction: column; 
+  
 `; 
 
 

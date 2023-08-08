@@ -7,6 +7,11 @@ export const selectHabits = createSelector(
     (habitsSlice) => habitsSlice.habits
 )
 
+
+export const selectIsHabitChanged = createSelector(
+  [selectHabitsReducer], 
+  (habitsSlice) => habitsSlice.isHabitsChanged
+)
 export const selectHabitsMap = createSelector(
     [selectHabits],
     (habits) =>

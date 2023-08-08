@@ -70,7 +70,7 @@ const Calendar = ({habitName}) => {
 
       calendarDays.push(
         <div
-          key={day}
+          //key={day}
           className={`day ${isCompleted ? 'completed' : ''}`}
           onClick={() => handleDayClick(day)}
         >
@@ -97,9 +97,7 @@ const Calendar = ({habitName}) => {
 
   return (
     <>
-    <div>hi  </div>
     <div className="calendar">
-      
       {renderCalendar()}
     </div>
       
