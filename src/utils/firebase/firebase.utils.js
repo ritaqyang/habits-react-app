@@ -1,8 +1,7 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
+
+//Todo: finish retrieve profile pic function 
 
 import {
   getAuth,
@@ -246,4 +245,18 @@ export const createUserDocumentFromAuth = async (
     // }
      return userProfilePicRef;
   }; 
+  
+  export const retrieveProfilePic = async(email,habitName) => {
+    const Ref= doc(db,'user-habit',email,'Habits',habitName); 
+    const docSnapshot = await getDoc(Ref);
+    if (docSnapshot.exists()){
+      console.log("document data" , docSnapshot.data().completedDays);
+      return docSnapshot.data().completedDays; 
+    
+    } else {
+      // docSnap.data() will be undefined in this case
+      console.log("No such document!");
+    }
+  }; 
+
   
