@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
+import { uploadUserProfileImageURL } from '../../../utils/firebase/firebase.utils';
+import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '../../../store/user/user.selector';
 
 const ImageUploadForm = () => {
   const [selectedImage, setSelectedImage] = useState(null);
-
-  const handleImageChange = (e) => {
+    const currentUser = useSelector(selectCurrentUser); 
+  
+  
+    const handleImageChange = (e) => {
     const file = e.target.files[0];
+    console.log("etartget files " +e.target.files); 
     if (file && file.type === 'image/jpeg') {
       setSelectedImage(file);
     } else {
@@ -14,9 +20,11 @@ const ImageUploadForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (selectedImage) {
-      // Here you can implement logic to upload the selectedImage to a server or cloud storage.
-      // For this example, let's assume you're just displaying the selected image.
+    if ((selectedImage) && currentUser){
+        //upload image to firebase database 
+        const imageURL = URL.createObjectURL(selectedImage);
+        uploadUserProfileImageURL(currentUser,imageURL); 
+
     } else {
       alert('Please select an image to upload.');
     }
@@ -31,7 +39,8 @@ const ImageUploadForm = () => {
       {selectedImage && (
         <div>
           <h2>Selected Image:</h2>
-          <img src={URL.createObjectURL(selectedImage)} alt="Selected" />
+          <h2>{selectedImage.name}</h2>
+          {/* <img src={URL.createObjectURL(selectedImage)} alt="Selected" /> */}
         </div>
       )}
     </div>

@@ -70,7 +70,6 @@ export const addCollectionAndDocuments = async (
   console.log('done');
 };
 
-
 export const getCategoriesAndDocuments = async (categories) => {
   const collectionRef = collection(db, categories);
   const q = query(collectionRef);
@@ -87,8 +86,6 @@ export const getHabitsfromDatabase = async (email) => {
   return Snapshot.docs.map((docSnapshot) => docSnapshot.data()); 
 
 }
-
-
 
 export const createUserDocumentFromAuth = async (
     userAuth, 
@@ -135,7 +132,6 @@ export const createUserDocumentFromAuth = async (
   export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback); 
 
 
-
   export const addHabit = async (
     user, 
     habit,
@@ -178,7 +174,6 @@ export const createUserDocumentFromAuth = async (
      return userHabitDocRef;
   }
 
-
   export const updateCompletedHabit = async (
     user, 
     habit,
@@ -208,7 +203,6 @@ export const createUserDocumentFromAuth = async (
     } 
   }; 
 
-
   export const retrieveCompletedDays = async(email,habitName) => {
     const Ref= doc(db,'user-habit',email,'Habits',habitName); 
     const docSnapshot = await getDoc(Ref);
@@ -222,4 +216,34 @@ export const createUserDocumentFromAuth = async (
     }
   }; 
 
+  export const uploadUserProfileImageURL= async(
+    user, 
+    imageURL,
+  ) => {
+    
+    if (!user) return; 
+    const userProfilePicRef = doc(db, 'profile', user.email);
+    const userSnapshot = await getDoc(userProfilePicRef);
+    if (!userSnapshot.exists()) {
+      try {
+        console.log('creating a new profile pic doc for user, user email is ' + user.email);
+        await setDoc(userProfilePicRef, {
+          
+            profilePic: imageURL,
+           //object 
+      });
+      } catch (error) {
+        console.log('error adding user profile image', error.message); 
+      }   
+    } 
+    // else{
+    //   try {
+    //     console.log("user habit doc already exist - adding a new habit, user email is " +  user.email); 
+        
+    //   } catch (error) {
+    //     console.log('error adding to existing user habit doc'); 
+    //   }
+    // }
+     return userProfilePicRef;
+  }; 
   
