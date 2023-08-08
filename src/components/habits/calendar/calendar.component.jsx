@@ -6,6 +6,7 @@ import './calendar.styles.css';
 import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../../store/user/user.selector';
 import { retrieveCompletedDays, updateCompletedHabit } from '../../../utils/firebase/firebase.utils';
+import { selectIsHabitChanged } from '../../../store/habit/habit.selector';
 
 const Calendar = ({habitName}) => {
   const [completedDays, setCompletedDays] = useState([]);
@@ -13,6 +14,8 @@ const Calendar = ({habitName}) => {
   // const month = today.month(); 
   const month = today.format('MMM'); 
   console.log("todary is : " + month); 
+
+  const isHabitAdded = useSelector(selectIsHabitChanged); 
 
   const currentUser = useSelector(selectCurrentUser); 
   
@@ -47,11 +50,12 @@ const Calendar = ({habitName}) => {
     }
   }, [currentUser]);
 
-  const renderCalendar = () => {
+  const renderCalendar = (isHabitAdded) => {
     
     const firstDayOfMonth = today.clone().startOf('month');
     const daysInMonth = today.clone().endOf('month').date();
     const firstDayOfWeek = firstDayOfMonth.day();
+    console.log(isHabitAdded); 
 
     const calendarDays = [];
     const daysOfWeek = moment.weekdaysShort();
@@ -98,7 +102,7 @@ const Calendar = ({habitName}) => {
   return (
     <>
     <div className="calendar">
-      {renderCalendar()}
+      {renderCalendar(isHabitAdded)}
     </div>
       
     <div> {habitName} completed days: {reportCompletedDays()}</div>

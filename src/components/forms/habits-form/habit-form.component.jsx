@@ -1,3 +1,6 @@
+//todo: make page refresh when the modal closes 
+
+
 import { useState } from 'react';
 import FormInput from '../form-input/form-input.component';
 import Button from '../../button/button.component';
@@ -12,6 +15,20 @@ import { addHabit } from '../../../utils/firebase/firebase.utils';
 import { selectHabitsMap } from '../../../store/habit/habit.selector';
 import { useDispatch } from 'react-redux';
 import { setHabits, setIsHabitsChanged } from '../../../store/habit/habit.reducer';
+import Modal from 'react-modal';
+
+
+
+
+// Custom styles for the modal content
+const customStyles = {
+  content: {
+    width: '35%',    // Adjust the width to your desired size
+    height: '35%',   // Adjust the height to your desired size
+    margin: 'auto',  // Center the modal
+  },
+};
+
 
 
 const defaultFormFields = {
@@ -25,6 +42,7 @@ const HabitForm = () => {
   const { habitName } = formFields;
   const currentUser = useSelector(selectCurrentUser); 
   const dispatch = useDispatch(); 
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -36,7 +54,7 @@ const HabitForm = () => {
       await addHabit(currentUser, habitName); // adding habit to firebase (create new user document)
       console.log('habit added '+habitName ); 
       setIsHabitsChanged('user added new habit ' + habitName); 
-      resetFormFields();
+      //resetFormFields();
     } catch (error) {
       
         console.log('user habit creation encountered an error', error);
@@ -49,6 +67,15 @@ const HabitForm = () => {
 
     setFormFields({ ...formFields, [name]: value });
   };
+
+
+  // const handleCloseModal = async(event) => {
+  //   event.preventDefault(); 
+  //   try { 
+  //     await 
+  //   }
+  // }
+
 
   return (
     <HabitContainer>
@@ -85,8 +112,19 @@ const HabitForm = () => {
       
 
         
-        <Button type='submit'>Commit</Button>
+        <Button type='submit'onClick={() => setModalIsOpen(true)}>Commit</Button>
       </form>
+
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={() => setModalIsOpen(false)}
+        contentLabel="Example Modal"
+        style={customStyles} // Apply custom styles
+      >
+        <h2>Modal Content</h2>
+        <p>You've commited to {habitName} </p>
+        <Button onClick={() => setModalIsOpen(false)}>Close Window</Button>
+      </Modal>
       </HalfContainer>
   
     </HabitContainer>

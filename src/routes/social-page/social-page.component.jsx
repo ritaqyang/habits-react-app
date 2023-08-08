@@ -1,6 +1,8 @@
 
 import Calendar from "../../components/habits/calendar/calendar.component";
 
+import MyComponent from "../../components/forms/pop-up/pop-up.component";
+
 const SocialPage = () => {
 
 
@@ -9,7 +11,7 @@ const SocialPage = () => {
             this is the social page under construction :3
             
             
-            
+            <MyComponent /> 
         </div>
     )
 }; 
