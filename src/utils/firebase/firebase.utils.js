@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
-
-
+import firebase from 'firebase/app';
+import 'firebase/storage'; // Import the storage module
 //Todo: finish retrieve profile pic function 
 
 import {
@@ -246,17 +246,31 @@ export const createUserDocumentFromAuth = async (
      return userProfilePicRef;
   }; 
   
-  export const retrieveProfilePic = async(email,habitName) => {
-    const Ref= doc(db,'user-habit',email,'Habits',habitName); 
+  export const retrieveProfilePic = async(email) => {
+    const Ref= doc(db,'profile',email); 
     const docSnapshot = await getDoc(Ref);
     if (docSnapshot.exists()){
-      console.log("document data" , docSnapshot.data().completedDays);
-      return docSnapshot.data().completedDays; 
+      console.log("document data" , docSnapshot.data().profilePic);
+      return docSnapshot.data().profilePic; 
     
     } else {
       // docSnap.data() will be undefined in this case
       console.log("No such document!");
     }
   }; 
+
+export const uploadImageToStorage = async(imageObj, email)=> {
+  const storageRef = firebase.storage().ref();
+
+const imageRef = storageRef.child('profile-image/' + email);
+
+imageRef.put(imageObj).then(snapshot => {
+  console.log('Image uploaded successfully');
+  // Proceed to get the download URL and store it in Firestore
+}).catch(error => {
+  console.error('Error uploading image:', error);
+});
+
+};
 
   

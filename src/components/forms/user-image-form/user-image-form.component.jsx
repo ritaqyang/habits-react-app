@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { uploadUserProfileImageURL } from '../../../utils/firebase/firebase.utils';
+import { uploadImageToStorage, uploadUserProfileImageURL } from '../../../utils/firebase/firebase.utils';
 import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../../store/user/user.selector';
 
@@ -22,8 +22,7 @@ const ImageUploadForm = () => {
     e.preventDefault();
     if ((selectedImage) && currentUser){
         //upload image to firebase database 
-        const imageURL = URL.createObjectURL(selectedImage);
-        uploadUserProfileImageURL(currentUser,imageURL); 
+        uploadImageToStorage(selectedImage,currentUser.email); 
 
     } else {
       alert('Please select an image to upload.');
