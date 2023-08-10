@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { getStorage, ref, uploadBytes,getDownloadURL } from "firebase/storage";
 
 // TODO: Replace the following with your app's Firebase project configuration
 // See: https://firebase.google.com/docs/web/learn-more#config-object
@@ -30,4 +30,20 @@ export const uploadToStorage = async (file, email) => {
   }
   // 'file' comes from the Blob or File API
   
-  
+
+export const getImageFromStorage = async (email) => {
+    getDownloadURL(ref(storage, `${email}/profile_image.jpg`))
+  .then((url) => {
+    // `url` is the download URL for 'images/stars.jpg'
+
+    // Or inserted into an <img> element
+    const img = document.getElementById('myimg');
+    img.setAttribute('src', url);
+    console.log("gotimage from storage: " + img); 
+    return img; 
+  })
+  .catch((error) => {
+    // Handle any errors
+  });
+};
+

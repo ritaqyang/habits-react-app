@@ -3,3 +3,9 @@
 https://firebase.google.com/docs/storage/web/start?hl=en&authuser=0
 
 for profile images 
+
+
+download and display image element 
+https://firebase.google.com/docs/storage/web/download-files?hl=en&authuser=0
+
+
