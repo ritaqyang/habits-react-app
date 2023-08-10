@@ -9,22 +9,8 @@ import { useState, useEffect } from "react";
 const SocialPage = () => {
 
     const currentUser = useSelector(selectCurrentUser); 
-    const [image, setImage] = useState({}); 
+    const [image, setImage] = useState(); 
 
-    useEffect(() => {
-        //retrieve user profile pic  from firebase 
-        if (currentUser) {
-    
-          const email = currentUser.email;
-          const func = async() => {
-            const imageURL = await retrieveProfilePic(email);
-            setImage(imageURL);
-            
-          }
-          func(); 
-          
-        }
-      }, [currentUser]);
 
     return (
         <div>

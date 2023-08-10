@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { uploadImageToStorage, uploadUserProfileImageURL } from '../../../utils/firebase/firebase.utils';
 import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../../store/user/user.selector';
+import { uploadToStorage } from '../../../utils/firebase/firebase.storage';
 
 const ImageUploadForm = () => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -22,7 +23,7 @@ const ImageUploadForm = () => {
     e.preventDefault();
     if ((selectedImage) && currentUser){
         //upload image to firebase database 
-        uploadImageToStorage(selectedImage,currentUser.email); 
+        uploadToStorage(selectedImage); 
 
     } else {
       alert('Please select an image to upload.');

@@ -1,7 +1,4 @@
 import { initializeApp } from "firebase/app";
-import firebase from 'firebase/app';
-import 'firebase/storage'; // Import the storage module
-//Todo: finish retrieve profile pic function 
 
 import {
   getAuth,
@@ -25,8 +22,7 @@ import {
   updateDoc,
   increment,
 } from 'firebase/firestore';
-import { getDatabase, ref, orderByChild } from "firebase/database";
-import { setHabits } from "../../store/habit/habit.reducer";
+//import { getDatabase, ref, orderByChild } from "firebase/database";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -259,18 +255,8 @@ export const createUserDocumentFromAuth = async (
     }
   }; 
 
-export const uploadImageToStorage = async(imageObj, email)=> {
-  const storageRef = firebase.storage().ref();
 
-const imageRef = storageRef.child('profile-image/' + email);
 
-imageRef.put(imageObj).then(snapshot => {
-  console.log('Image uploaded successfully');
-  // Proceed to get the download URL and store it in Firestore
-}).catch(error => {
-  console.error('Error uploading image:', error);
-});
 
-};
 
   
