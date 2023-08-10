@@ -23,7 +23,7 @@ const ImageUploadForm = () => {
     e.preventDefault();
     if ((selectedImage) && currentUser){
         //upload image to firebase database 
-        uploadToStorage(selectedImage); 
+        uploadToStorage(selectedImage,currentUser.email); 
 
     } else {
       alert('Please select an image to upload.');

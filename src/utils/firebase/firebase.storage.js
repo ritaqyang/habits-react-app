@@ -21,8 +21,8 @@ const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
 
 
-export const uploadToStorage = async (file) => {
-    const storageRef = ref(storage, 'profile-image');
+export const uploadToStorage = async (file, email) => {
+    const storageRef = ref(storage, `${email}/profile_image.jpg`);
   
     uploadBytes(storageRef, file).then((snapshot) => {
       console.log('Uploaded a blob or file!');
