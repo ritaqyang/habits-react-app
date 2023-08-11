@@ -7,7 +7,7 @@ import CartDropdown from '../../components/cart/cart-dropdown/cart-dropdown.comp
 import CartIcon from '../../components/cart/cart-icon/cart-icon.component';
 import { selectCurrentUser } from '../../store/user/user.selector';
 import { selectIsCartOpen } from '../../store/cart/cart.selector';
-
+import { ProfileImage } from '../../components/profile-image/profile-image.component';
 import './navigation.styles.jsx'; 
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 import InvestIcon from '../../components/investment/invest-icon/invest-icon.component';
@@ -29,7 +29,9 @@ const Navigation = () => {
       <Fragment>
         <NavigationContainer>
 
-        <InvestIcon />
+          <ProfileImage /> 
+        {/* <InvestIcon /> */}
+
         <GreetingsContainer>
           {currentUser ? (
             <>

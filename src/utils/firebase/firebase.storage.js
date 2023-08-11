@@ -38,7 +38,7 @@ export const getImageFromStorage = async (email) => {
 
     // Or inserted into an <img> element
     const img = document.getElementById('myimg');
-    img.style.width = '100px'; // Set the width to 200 pixels
+    img.style.width = ' 3.5rem'; // Set the width to 200 pixels
     img.style.height = 'auto'; // Let the browser maintain the aspect ratio
 
     img.setAttribute('src', url);
