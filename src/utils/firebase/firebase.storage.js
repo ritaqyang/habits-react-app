@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getStorage, ref, uploadBytes,getDownloadURL } from "firebase/storage";
+import { getStorage, ref, uploadBytes,getDownloadURL, connectStorageEmulator } from "firebase/storage";
 
 // TODO: Replace the following with your app's Firebase project configuration
 // See: https://firebase.google.com/docs/web/learn-more#config-object
@@ -38,9 +38,11 @@ export const getImageFromStorage = async (email) => {
 
     // Or inserted into an <img> element
     const img = document.getElementById('myimg');
+    img.style.width = '100px'; // Set the width to 200 pixels
+    img.style.height = 'auto'; // Let the browser maintain the aspect ratio
+
     img.setAttribute('src', url);
-    console.log("gotimage from storage: " + img); 
-    return img; 
+    console.log("firebase storage getting image from storage"); 
   })
   .catch((error) => {
     // Handle any errors

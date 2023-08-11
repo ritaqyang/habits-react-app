@@ -14,11 +14,11 @@ const SocialPage = () => {
 
     useEffect (() => {
       const myfunc = async () =>{
+        console.log("my func is called in social page component "); 
         const email = 'ritaqyang@gmail.com'; 
-        
         const img = await getImageFromStorage(email); 
         console.log("image is " + img); 
-        setImage(img); 
+        //setImage(img); 
       }
       myfunc();
     },[]); 
@@ -29,7 +29,8 @@ const SocialPage = () => {
         
         <div>
           <h2>image from firestore storage :</h2>
-          <h2>{image}</h2>
+          <img id="myimg" src="" alt="My Image"/>
+
           
         </div>
      
