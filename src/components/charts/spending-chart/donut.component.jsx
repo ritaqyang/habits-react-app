@@ -7,6 +7,7 @@ import {
   SpendingFormContainer,
   HalfContainer, 
   BigContainer,
+  ButtonContainer, IndividualButton,
 } from './spending-form.styles';
 const defaultFormFields = {
 
@@ -178,15 +179,19 @@ function Donutchart()
             value={savingsAmount}
             />
         </HalfContainer>
-       
-        <Button type='submit'>submit the numbers</Button>
+        <ButtonContainer>
+          <IndividualButton>
+          <Button type='submit'>submit the numbers</Button>
+          </IndividualButton>
+          <IndividualButton>
+          <Button onClick={handleClick}>see without rent</Button>
+
+          </IndividualButton>
+
+        </ButtonContainer>
         
       </form>
-      <Button onClick={handleClick}>see distribution without rent</Button>
       
-      
-
-
     </SpendingFormContainer>
     
             <Chart 

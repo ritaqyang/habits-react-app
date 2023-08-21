@@ -4,12 +4,16 @@ import { Link } from 'react-router-dom';
 
 
 export const NavigationContainer = styled.div`
-  width: 100%;
-  height: 75px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 25px;
+ 
+      width: 100%;
+      height: 75px;
+      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 25px;
+      
+  
+
 
 `;
 
@@ -20,11 +24,14 @@ export const GreetingsContainer = styled.div`
 `;
 
 export const NavLinks = styled.div`
+  display: none; 
+  @media (min-width: 950px) {
   width: 80%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  }
 `;
 
 export const NavLink = styled(Link)`
