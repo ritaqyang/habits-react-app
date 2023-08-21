@@ -1,14 +1,17 @@
-import './category-item.styles.scss'; 
+import { BigContainer } from "./category-item.styles";
+
 
 const CategoryItem = ({category}) => {
     const { title, info } = category;  
     return (
-        <div className='category-container'>
-            <div className='category-body-container'>
-                <h2>{title}</h2>
+        <>
+        <BigContainer>
+             <h2>{title}</h2>
                 <p>{info}</p>
-            </div>
-        </div>
+        </BigContainer>
+               
+                </>
+           
     )
 }
 

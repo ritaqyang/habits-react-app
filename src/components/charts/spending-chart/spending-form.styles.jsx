@@ -4,7 +4,8 @@ export const BigContainer = styled.div`
   display: flex; 
   flex-direction: column; 
   border: 3px solid pink; 
-  @media (min-width:950px){
+  padding: 2rem; 
+  @media (min-width:1100px){
     display: flex; 
     flex-direction: row;
     border: 3px solid pink; 
@@ -14,6 +15,7 @@ export const SpendingFormContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
+  padding: 1rem;
   border: 3px solid black; 
   h2 {
     margin: 10px 0;

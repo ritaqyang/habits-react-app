@@ -2,6 +2,7 @@
 import CategoryItem from '../category/category-item/category-item.component';
 import {
   CategoryContainer,
+  FeatureBox,
   WebsiteFeatures,
 } from './home-directory.styles'
 
@@ -17,10 +18,15 @@ function HomeDirectory({categories}) {
       </WebsiteFeatures>
 
       <CategoryContainer>
-         {categories.map((category) => (
-          <CategoryItem key={category.id} category={category}/>
+        
+          {categories.map((category) => (
+            <FeatureBox>
+          <CategoryItem key={category.id} category={category}/> 
+          </FeatureBox>
           ))
           }
+       
+         
       </CategoryContainer>
 
   </div>

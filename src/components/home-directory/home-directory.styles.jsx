@@ -3,13 +3,11 @@ import styled from 'styled-components';
 
 export const CategoryContainer = styled.div`
     display: flex;
-    align-items: center;
-    column-gap: 3rem;
-    row-gap: 3rem;
-    padding-left: 5rem; 
-    padding-top: 5rem;
-    padding-bottom: 5rem; 
     flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    //border: 3px solid green; 
+
    
 `;
 
@@ -23,3 +21,9 @@ export const WebsiteFeatures = styled.div`
   }
 `;
 
+export const FeatureBox = styled.div`
+  display: flex; 
+  padding: 2rem; 
+  //border: 3px solid red; 
+
+`;

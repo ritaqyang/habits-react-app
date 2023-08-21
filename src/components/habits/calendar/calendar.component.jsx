@@ -105,7 +105,7 @@ const Calendar = ({habitName}) => {
       {renderCalendar(isHabitAdded)}
     </div>
       
-    <div> {habitName} completed days: {reportCompletedDays()}</div>
+    {/* <div> {habitName} completed days: {reportCompletedDays()}</div> */}
     </>
   );
 };

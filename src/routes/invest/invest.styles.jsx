@@ -16,7 +16,7 @@ export const InvestPageBodyContainer = styled.div`
 export const InvestCalcContainer= styled.div`
     
     display: flex; 
-    width: 40%; 
+    width: 100%; 
     flex-direction: column; 
     border: solid 1px black; 
     &calc {

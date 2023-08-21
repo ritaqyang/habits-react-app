@@ -4,7 +4,7 @@ import FormInput from "../../forms/form-input/form-input.component";
 import SmallFormInput from "../../forms/invest-forms/form-input-small/form-input-small.component";
 import Button from "../../button/button.component";
 import { useState } from "react";
-import {InvestFormContainer} from './investment-chart.styles'; 
+import {InvestFormContainer, BigContainer, ChartContainer} from './investment-chart.styles'; 
 
 const defaultFormFields = {
   monthlyAmount: 100,
@@ -164,32 +164,9 @@ const InvestChart = () => {
 
     return (
      <>
-      <InvestFormContainer>
-        <form onSubmit={handleSubmit}>
-        <SmallFormInput
-          label='Monthly Contribution'
-          type='text'
-          required
-          onChange={handleChange}
-          name='monthlyAmount'
-          value={monthlyAmount}
-        />
-
-        <SmallFormInput
-          label='Savings'
-          type='text'
-          required
-          onChange={handleChange}
-          name='savingsAmount'
-          value={savingsAmount}
-        />
-
-
-        <Button type='submit'>Estimate</Button>
-        </form>
-
-      </InvestFormContainer>
-
+     <BigContainer>
+      
+      <ChartContainer>
       <Chart 
         options={{
           chart: {
@@ -248,11 +225,37 @@ const InvestChart = () => {
           }
         ] 
       }
-        width={800} 
-        height={500} 
+        
       />
+      </ChartContainer>
 
-      
+
+      <InvestFormContainer>
+        <form onSubmit={handleSubmit}>
+        <SmallFormInput
+          label='Monthly Contribution'
+          type='text'
+          required
+          onChange={handleChange}
+          name='monthlyAmount'
+          value={monthlyAmount}
+        />
+
+        <SmallFormInput
+          label='Savings'
+          type='text'
+          required
+          onChange={handleChange}
+          name='savingsAmount'
+          value={savingsAmount}
+        />
+
+
+        <Button type='submit'>Estimate</Button>
+        </form>
+
+      </InvestFormContainer>
+</BigContainer>
  
     </>
     );
