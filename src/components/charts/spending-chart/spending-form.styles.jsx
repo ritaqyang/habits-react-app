@@ -2,19 +2,16 @@ import styled from 'styled-components';
 
 export const BigContainer = styled.div`
   display: flex; 
-  flex-direction: column; 
+  width: 100%;
   border: 3px solid pink; 
   padding: 2rem; 
-  @media (min-width:1100px){
-    display: flex; 
-    flex-direction: row;
-    border: 3px solid pink; 
-  }
+  flex-wrap: wrap; 
+  
 `;
 export const SpendingFormContainer = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
+  
   padding: 1rem;
   border: 3px solid black; 
   h2 {
@@ -45,4 +42,10 @@ export const ButtonContainer = styled.div`
 export const IndividualButton = styled.div`
   padding: 1rem; 
 
+`;
+
+export const ChartContainer = styled.div`
+
+  border: 2px solid red;
+  
 `;

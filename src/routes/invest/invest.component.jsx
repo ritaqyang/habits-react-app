@@ -17,9 +17,9 @@ const Invest = () => {
                 <InvestChart />
             </InvestCalcContainer>
 
+            <h2>Do your spending habits match your priorities and goals? </h2>
             
             <SpendingContainer>
-                <h2>Do your spending habits match your priorities and goals? </h2>
                 
                
                 <Donutchart />

@@ -15,8 +15,8 @@ export const BigContainer = styled.div`
 export const InvestFormContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 20rem;
-  padding: 2rem;
+  width: 50%;
+  padding: 1rem;
   h2 {
     margin: 10px 0;
     color: black;
@@ -29,6 +29,6 @@ export const InvestFormContainer = styled.div`
 export const ChartContainer = styled.div`
   
   padding: 2rem; 
-  width: 80%; 
-  max-width:800px;
+  width: 100%; 
+  //max-width:800px;
 `;

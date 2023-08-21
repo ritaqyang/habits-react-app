@@ -7,7 +7,7 @@ import {
   SpendingFormContainer,
   HalfContainer, 
   BigContainer,
-  ButtonContainer, IndividualButton,
+  ButtonContainer, IndividualButton, ChartContainer,
 } from './spending-form.styles';
 const defaultFormFields = {
 
@@ -194,6 +194,8 @@ function Donutchart()
       
     </SpendingFormContainer>
     
+        <ChartContainer>
+
             <Chart 
             type="donut"
             width={500}
@@ -233,6 +235,8 @@ function Donutchart()
             }}
             
             />
+        </ChartContainer>
+
 
             </BigContainer>
         </React.Fragment>
