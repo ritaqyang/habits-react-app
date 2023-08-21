@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 export const CategoryPreviewContainer = styled.div`
   display: flex;
+  width:100%;
   flex-direction: column;
   margin-bottom: 30px;
 `;
@@ -15,7 +16,15 @@ export const Title = styled(Link)`
 `;
 
 export const Preview = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  column-gap: 20px;
+  display: flex;
+  width: 100%;
 `;
+export const FeatureBox = styled.div`
+  display: flex; 
+  padding: 2rem; 
+  //border: 3px solid red; 
+
+`;
+
+
+
