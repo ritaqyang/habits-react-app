@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import HomeDirectory from "../../components/home-directory/home-directory.component";
 import { selectHabitsMap } from "../../store/habit/habit.selector";
 
-import House from "../../components/spline/house.component";
 
 
 function Home() {
