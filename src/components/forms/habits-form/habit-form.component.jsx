@@ -1,6 +1,6 @@
 //todo: make page refresh when the modal closes 
 
-
+import RedButton from '../../button/red_button.component';
 import { useState } from 'react';
 import FormInput from '../form-input/form-input.component';
 import Button from '../../button/button.component';

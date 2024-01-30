@@ -5,6 +5,8 @@ import SmallFormInput from "../../forms/invest-forms/form-input-small/form-input
 import Button from "../../button/button.component";
 import { useState } from "react";
 import {InvestFormContainer, BigContainer, ChartContainer} from './investment-chart.styles'; 
+import RedButton from "../../button/red_button.component";
+
 
 const defaultFormFields = {
   monthlyAmount: 100,
@@ -251,7 +253,7 @@ const InvestChart = () => {
         />
 
 
-        <Button type='submit'>Estimate</Button>
+        <RedButton type='submit'>Estimate</RedButton>
         </form>
 
       </InvestFormContainer>

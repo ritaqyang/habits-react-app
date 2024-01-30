@@ -8,6 +8,7 @@ import Button from '../../../button/button.component';
 import { 
   InvestFormContainer,
 } from './invest-calc-form.styles';
+import RedButton from '../../../button/red_button.component';
 
 
 
@@ -65,9 +66,8 @@ const InvestCalcForm = () => {
           name='savingsAmount'
           value={savingsAmount}
         />
-
         
-        <Button type='submit'>Estimate</Button>
+        <RedButton type='submit'>Estimate</RedButton>
       </form>
 
     </InvestFormContainer>

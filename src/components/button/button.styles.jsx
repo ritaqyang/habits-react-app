@@ -26,6 +26,16 @@ export const BaseButton = styled.button`
   
 
 `; 
+export const PinkButton = styled.button`
+  padding: 15px;
+  margin: 25px 0px;
+  width: 290px;
+  font-size: 15px;
+  background: #DE5499;
+  border-radius: 10px;
+  font-weight: 800;
+  box-shadow: 3px 3px 0px 0px #E99F4C;
+`; 
 
 export const GoogleSignInButton = styled(BaseButton)`
   background-color: rgba(29, 77, 220, 0.7);

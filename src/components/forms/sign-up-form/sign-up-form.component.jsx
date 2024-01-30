@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import Button, { BUTTON_TYPE_CLASSES }  from '../../button/button.component';
 
 import FormInput from '../form-input/form-input.component';
-import Button from '../../button/button.component';
 
 import {
   createAuthUserWithEmailAndPassword,
@@ -10,7 +10,9 @@ import {
 
 // import './sign-up-form.styles.scss';
 import { 
+  FormArea,
   SignUpContainer,
+  Title,
 } from './sign-up-form.styles'
 
 
@@ -62,8 +64,9 @@ const SignUpForm = () => {
 
   return (
     <SignUpContainer>
-      <h2>Don't have an account?</h2>
-      <span>Sign up with your email and password</span>
+      <FormArea>
+        
+      <Title> sign up </Title>
       <form onSubmit={handleSubmit}>
         <FormInput
           label='Display Name'
@@ -100,8 +103,10 @@ const SignUpForm = () => {
           name='confirmPassword'
           value={confirmPassword}
         />
-        <Button type='submit'>Sign Up</Button>
-      </form>
+        <Button buttonType={BUTTON_TYPE_CLASSES.pink}type='submit'>Sign Up</Button>
+        
+        </form>
+        </FormArea>
     </SignUpContainer>
 
   );
