@@ -4,12 +4,12 @@ import styled from 'styled-components';
 export const BigContainer = styled.div`
   display: flex; 
   flex-direction: column; 
-  border: 3px solid pink; 
+  
   width: 100%;
   @media (min-width:950px){
     display: flex; 
     flex-direction: row;
-    border: 3px solid pink; 
+    
   }
 `;
 export const InvestFormContainer = styled.div`

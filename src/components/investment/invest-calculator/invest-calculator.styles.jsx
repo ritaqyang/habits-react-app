@@ -6,7 +6,6 @@ export const CalcContainer = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
-    //border: 1px pink solid; 
     padding: 2rem; 
     
 `; 

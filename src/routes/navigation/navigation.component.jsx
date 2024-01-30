@@ -62,6 +62,9 @@ const Navigation = () => {
             <NavLink className='nav-link' to="/invest-page">
               Invest
             </NavLink>
+            <NavLink className='nav-link' to="/database-page">
+              database
+            </NavLink>
 
             
             {currentUser ? (

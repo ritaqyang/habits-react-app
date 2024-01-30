@@ -9,11 +9,11 @@ const SocialPage = () => {
     const currentUser = useSelector(selectCurrentUser); 
     return (
         
-        <div>
-          <h2>image from firestore storage :</h2>
+      <div >
+        <div className="text-3xl underline">image from firestore storage :</div>
 
 
-          <ProfileImage />
+         
         </div>
      
     )

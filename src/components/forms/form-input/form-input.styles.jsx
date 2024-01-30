@@ -22,30 +22,20 @@ export const FormInputLabel = styled.label`
 `;
 
 export const Input = styled.input`
-  background: none;
-  background-color: white;
-  color: ${subColor};
-  font-size: 18px;
-  padding: 10px 10px 10px 5px;
-  display: block;
-  width: 100%;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid ${subColor};
-  margin: 25px 0;
-
-  &:focus {
-    outline: none;
-  }
-
-  &:focus ~ ${FormInputLabel} {
-    ${shrinkLabelStyles};
-  }
+  outline: none;
+  border: 2px solid #264143;
+  box-shadow: 3px 4px 0px 1px #E99F4C;
+  width: 290px;
+  padding: 12px 10px;
+  border-radius: 4px;
+  font-size: 15px;
 `;
 
 export const Group = styled.div`
-  position: relative;
-  margin: 45px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  margin: 10px;
 
   input[type='password'] {
     letter-spacing: 0.3em;

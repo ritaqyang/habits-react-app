@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import HomeDirectory from "../../components/home-directory/home-directory.component";
 import { selectHabitsMap } from "../../store/habit/habit.selector";
+import { CategoryContainer, Container } from "./home.styles";
 
-import House from "../../components/spline/house.component";
-
+import CardComponent from "../../components/card/card.component";
 
 function Home() {
 
@@ -40,9 +40,29 @@ function Home() {
   
   return (
     <div>
+
+      <Container>
+        
+          <CardComponent title="Another Title">
+            <p>This is the main content of the card.</p>
+            <p>Additional content line.</p>
+            <p>Special Info Highlight</p>
+          </CardComponent>
+
+          <CardComponent title="Another Title">
+            <p>This is the main content of the card.</p>
+            <p>Additional content line.</p>
+            <p>Special Info Highlight</p>
+          </CardComponent>
+
+
+
+        
+
+      </Container>
       
 
-      <HomeDirectory categories={categories}/> 
+     
      
       {/* {Object.keys(habitsArray).map((title) => {return <div>{title}</div>})};  */}
       

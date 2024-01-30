@@ -13,7 +13,8 @@ import SignIn from './routes/sign-in/sign-in.component';
 import Dashboard from './routes/dashboard/dashboard.component';
 import UserPage from './routes/userpage/user-page.component';
 import SocialPage from './routes/social-page/social-page.component';
-import Invest  from './routes/invest/invest.component';
+import Invest from './routes/invest/invest.component';
+import DatabasePage from './routes/database-project/database.component';
 import { setCurrentUser } from './store/user/user.reducer';
 
 const App = () => {
@@ -43,6 +44,7 @@ const App = () => {
         <Route path="user-page" element={<UserPage />} />
         <Route path="social-page" element={<SocialPage />} />
         <Route path="invest-page" element={<Invest />} />
+        <Route path="database-page" element={<DatabasePage />} />
 
       </Route>
     </Routes>

@@ -2,6 +2,8 @@ import React ,{useState, useEffect}from "react";
 import Chart from 'react-apexcharts';
 import Button from "../../button/button.component";
 import SmallFormInput from "../../forms/invest-forms/form-input-small/form-input-small.component";
+import RedButton from "../../button/red_button.component";
+
 
 import { 
   SpendingFormContainer,
@@ -179,16 +181,12 @@ function Donutchart()
             value={savingsAmount}
             />
         </HalfContainer>
-        <ButtonContainer>
-          <IndividualButton>
-          <Button type='submit'>submit the numbers</Button>
-          </IndividualButton>
-          <IndividualButton>
-          <Button onClick={handleClick}>see without rent</Button>
+       
+          <RedButton type='submit'>submit</RedButton>
+          
+          <RedButton onClick={handleClick}>see without rent</RedButton>
 
-          </IndividualButton>
-
-        </ButtonContainer>
+         
         
       </form>
       
